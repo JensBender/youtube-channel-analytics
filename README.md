@@ -33,6 +33,9 @@
   <li>
     <a href="#data-visualization">Data Visualization</a>
   </li>
+  <li>
+    <a href="#license">License</a>
+  </li>
 </ol>
 
 
@@ -81,6 +84,11 @@ Implemented two visualization components:
 + **Interactive World Map**: Presented the subscribers' country of origin on an interactive world map using Folium, allowing for geographical analysis of the channel's audience.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- LICENSE -->
+## License
+This project is licensed under the [MIT License](LICENSE).
 
 
 <!-- MARKDOWN LINKS -->
