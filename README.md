@@ -4,7 +4,10 @@
 <!-- PROJECT LOGO -->
 <div align="center">
   <a href="https://github.com/JensBender/youtube-channel-analytics">
-    <img src="images/logo.png" width=80%>
+    <img src="images/logo1.jpg" width=15%>
+  </a>
+  <a href="https://github.com/JensBender/youtube-channel-analytics">
+    <img src="images/logo2.png" width=80%>
   </a>
   <p>
     <br />
@@ -89,6 +92,13 @@ Implemented two visualization components:
 <!-- LICENSE -->
 ## License
 This project is licensed under the [MIT License](LICENSE).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- CREDITS -->
+## Credits
+Project logo was generated using AI technology by [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
 
 
 <!-- MARKDOWN LINKS -->
