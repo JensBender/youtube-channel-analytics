@@ -19,7 +19,7 @@
 ---
 
 <!-- TABLE OF CONTENTS -->
-## Table of Contents
+## 📋 Table of Contents
 <ol>
   <li>
     <a href="#summary">Summary</a>
@@ -43,7 +43,7 @@
 
 
 <!-- SUMMARY -->
-## Summary
+## 🎯 Summary
 + Built an ETL (Extract, Transform, Load) pipeline leveraging Apache Airflow, which involved:
   + Extracting YouTube channel data through the YouTube API
   + Transforming data by leveraging NumPy and Pandas
@@ -51,7 +51,7 @@
 + Showcased the main topics of the channel using a word cloud
 + Visualized the geographic distribution of subscribers on an interactive world map using Folium
 
-### Built With
+### 🛠️ Built With
 * [![Python][Python-badge]][Python-url]
 * [![NumPy][NumPy-badge]][NumPy-url]
 * [![Pandas][Pandas-badge]][Pandas-url]
@@ -63,7 +63,7 @@
 
 
 <!-- MOTIVATION -->
-## Motivation
+## 💡 Motivation
 + **Problem**: Analyzing the performance and audience demographics of a YouTube channel is crucial for content creators and marketers alike. However, manual data extraction and analysis can be time-consuming and prone to errors.
 + **Project goal**: Empower content creators and marketers with insights into a YouTube channel's performance and audience demographics to enable informed decision-making and content optimization strategies by developing an automated ETL pipeline and providing insightful visualizations.
 
@@ -71,7 +71,7 @@
 
 
 <!-- ETL PIPELINE -->
-## ETL Pipeline
+## 🔄 ETL Pipeline
 Built using Apache Airflow to automate the extraction, transformation, and loading of YouTube channel data.
 + **Data Extraction**: Utilized the YouTube API to extract comprehensive data about the channel, including video metadata, view counts, likes, comments, etc.
 + **Data Transformation**: Implemented data manipulation and transformation techniques using NumPy and Pandas to prepare the extracted data for analysis.
@@ -81,7 +81,7 @@ Built using Apache Airflow to automate the extraction, transformation, and loadi
 
 
 <!-- DATA VISUALIZATION -->
-## Data Visualization
+## 📊 Data Visualization
 Implemented two visualization components:
 + **Word Cloud**: Visualized the main topics of the YouTube channel by identifying frequently occurring words or phrases in video titles, descriptions, or tags.
 + **Interactive World Map**: Presented the subscribers' country of origin on an interactive world map using Folium, allowing for geographical analysis of the channel's audience.
@@ -90,14 +90,14 @@ Implemented two visualization components:
 
 
 <!-- LICENSE -->
-## License
+## ©️ License
 This project is licensed under the [MIT License](LICENSE).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- CREDITS -->
-## Credits
+## ©️ Credits
 Project logo was generated using AI technology by [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
 
 
