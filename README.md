@@ -37,10 +37,10 @@
     <a href="#-data-visualization">Data Visualization</a>
   </li>
   <li>
-    <a href="#-license">License</a>
+    <a href="#️-license">License</a>
   </li>
   <li>
-    <a href="#-credits">Credits</a>
+    <a href="#️-credits">Credits</a>
   </li>
 </ol>
 
