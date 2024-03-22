@@ -101,7 +101,9 @@ This project is licensed under the [MIT License](LICENSE).
 
 <!-- CREDITS -->
 ## ©️ Credits
-Project logo was generated using AI technology by [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
+This project was created with the help of the following resources and tutorials:
++ Project logo: Created using AI technology by [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
++ [Python YouTube API Tutorial](https://www.youtube.com/watch?v=th5_9woFJmk) by Corey Schafer.
 
 
 <!-- MARKDOWN LINKS -->
