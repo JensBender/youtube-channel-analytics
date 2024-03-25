@@ -100,10 +100,12 @@ This project is licensed under the [MIT License](LICENSE).
 
 
 <!-- CREDITS -->
-## ©️ Credits
-This project was created with the help of the following resources and tutorials:
-+ Project logo: Created using AI technology by [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
-+ [Python YouTube API Tutorial](https://www.youtube.com/watch?v=th5_9woFJmk) by Corey Schafer.
+## 👏 Credits
+This project was made possible with the help of the following resources and tutorials:
++ **Project logo**: Created using AI technology by [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
++ **YouTube API**: Tutorials by [Corey Schafer](https://www.youtube.com/watch?v=th5_9woFJmk) and [Thu Vu data analytics](https://www.youtube.com/watch?v=D56_Cx36oGY).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- MARKDOWN LINKS -->
