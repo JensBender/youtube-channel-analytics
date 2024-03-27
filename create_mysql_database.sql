@@ -21,3 +21,10 @@ CREATE TABLE videos (
     comments INT,
     thumbnail_url VARCHAR(255)
 );
+
+CREATE TABLE comments (
+    comment_id VARCHAR(255) PRIMARY KEY,
+    video_id VARCHAR(255),
+    channel_id VARCHAR(255),
+    comment_text TEXT
+);
