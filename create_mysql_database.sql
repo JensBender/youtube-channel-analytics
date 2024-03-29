@@ -14,7 +14,7 @@ CREATE TABLE videos (
     channel_id VARCHAR(255),
     video_title VARCHAR(255),
     video_description TEXT,
-    published_at VARCHAR(255),
+    published_at DATETIME,
     video_duration VARCHAR(255),
     views INT,
     likes INT,
