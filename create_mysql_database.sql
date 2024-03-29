@@ -19,12 +19,15 @@ CREATE TABLE videos (
     views INT,
     likes INT,
     comments INT,
-    thumbnail_url VARCHAR(255)
+    thumbnail_url VARCHAR(255),
+	FOREIGN KEY (channel_id) REFERENCES channels(channel_id) ON DELETE CASCADE
 );
 
 CREATE TABLE comments (
     comment_id VARCHAR(255) PRIMARY KEY,
     video_id VARCHAR(255),
     channel_id VARCHAR(255),
-    comment_text TEXT
+    comment_text TEXT,
+    FOREIGN KEY (video_id) REFERENCES videos(video_id) ON DELETE CASCADE,
+    FOREIGN KEY (channel_id) REFERENCES channels(channel_id) ON DELETE CASCADE
 );
