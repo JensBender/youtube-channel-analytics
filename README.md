@@ -11,7 +11,7 @@
   </a>
   <p>
     <br />
-    Provide insights about a YouTube channel’s performance and subscribers.
+    Provide insights about a YouTube channel’s performance.
     <br />
   </p>
 </div> 
@@ -52,7 +52,6 @@
   + Transforming data by leveraging NumPy and Pandas
   + Loading the processed data into a MySQL database hosted on AWS
 + Showcased the main topics of the channel using a word cloud
-+ Visualized the geographic distribution of subscribers on an interactive world map using Folium
 
 ### 🛠️ Built With
 * [![Python][Python-badge]][Python-url]
@@ -67,8 +66,8 @@
 
 <!-- MOTIVATION -->
 ## 💡 Motivation
-+ **Problem**: Analyzing the performance and audience demographics of a YouTube channel is crucial for content creators and marketers alike. However, manual data extraction and analysis can be time-consuming and prone to errors.
-+ **Project goal**: Empower content creators and marketers with insights into a YouTube channel's performance and audience demographics to enable informed decision-making and content optimization strategies by developing an automated ETL pipeline and providing insightful visualizations.
++ **Problem**: Analyzing the performance of a YouTube channel is crucial for content creators and marketers alike. However, manual data extraction and analysis can be time-consuming and prone to errors.
++ **Project goal**: Empower content creators and marketers with insights into a YouTube channel's performance to enable informed decision-making and content optimization strategies by developing an automated ETL pipeline and providing insightful visualizations.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,9 +84,7 @@ Built using Apache Airflow to automate the extraction, transformation, and loadi
 
 <!-- DATA VISUALIZATION -->
 ## 📊 Data Visualization
-Implemented two visualization components:
-+ **Word Cloud**: Visualized the main topics of the YouTube channel by identifying frequently occurring words or phrases in video titles, descriptions, or tags.
-+ **Interactive World Map**: Presented the subscribers' country of origin on an interactive world map using Folium, allowing for geographical analysis of the channel's audience.
+Implemented a **word cloud** to visualize the main topics of the YouTube channel by identifying frequently occurring words or phrases in video titles or descriptions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
