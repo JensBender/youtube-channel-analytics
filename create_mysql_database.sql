@@ -6,7 +6,8 @@ CREATE TABLE channels (
     channel_name VARCHAR(255),
     views INT,
     videos INT,
-    subscribers INT
+    subscribers INT,
+    thumbnail_url VARCHAR(255)
 );
 
 CREATE TABLE videos (
@@ -28,6 +29,7 @@ CREATE TABLE comments (
     video_id VARCHAR(255),
     channel_id VARCHAR(255),
     comment_text TEXT,
+    published_at DATETIME,
     FOREIGN KEY (video_id) REFERENCES videos(video_id) ON DELETE CASCADE,
     FOREIGN KEY (channel_id) REFERENCES channels(channel_id) ON DELETE CASCADE
 );
