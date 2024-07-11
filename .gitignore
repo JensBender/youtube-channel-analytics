@@ -3,3 +3,7 @@
 .env
 youtube.pem
 youtube.ppk
+airflow.cfg
+webserver_config.py 
+/dags/__pycache__
+/logs
