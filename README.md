@@ -87,7 +87,13 @@ Built using Apache Airflow to automate the extraction, transformation, and loadi
 
 <!-- DATA VISUALIZATION -->
 ## 📊 Data Visualization
-Implemented a **word cloud** to visualize the main topics of the YouTube channel by identifying frequently occurring words or phrases in video titles or descriptions.
+Created an interactive PowerBI report with multiple pages designed to offer in-depth insights into channel performance and audience engagement:
+
++ **Home**: Provides an overview with subscriber counts, video metrics, and area charts showing videos by month. Users can select time periods and compare channels side-by-side for a comprehensive analysis.
++ **Engagement**: Visualizes key engagement metrics such as views, likes, and comments. Includes per-video and per-1000-views averages, complemented by area charts tracking monthly comment trends.
++ **Top 5 Videos**: Highlights each channel's top 5 videos, with user-defined ranking criteria (views, likes, or comments), enabling a tailored exploration of high-performing content.
+
+The report facilitates an interactive exploration of various metrics, allowing users to easily navigate through time periods and metrics to uncover patterns and trends in channel performance and audience behavior.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -104,7 +110,7 @@ This project is licensed under the [MIT License](LICENSE).
 This project was made possible with the help of the following resources and tutorials:
 + **Project logo**: Created using AI technology by [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
 + **YouTube API**: Tutorials by [Corey Schafer](https://www.youtube.com/watch?v=th5_9woFJmk) and [Thu Vu data analytics](https://www.youtube.com/watch?v=D56_Cx36oGY).
-+ **Apache Airflow**: Tutorials by [coder2j](https://www.youtube.com/watch?v=z7xyNOF8tak&list=PLwFJcsJ61oujAqYpMp1kdUBcPG0sE0QMT) and [Data with Marc](https://www.youtube.com/watch?v=vEApEfa8HXk&list=PL79i7SgJCJ9hf7JgG3S-3lOpsk2QCpWkD)
++ **Apache Airflow**: Tutorials by [coder2j](https://www.youtube.com/watch?v=z7xyNOF8tak&list=PLwFJcsJ61oujAqYpMp1kdUBcPG0sE0QMT) and [Data with Marc](https://www.youtube.com/watch?v=vEApEfa8HXk&list=PL79i7SgJCJ9hf7JgG3S-3lOpsk2QCpWkD).
 + **Power BI**: Tutorials by [BI Elite](https://www.youtube.com/@BIElite) and [How to Power BI](https://www.youtube.com/@HowtoPowerBI).
 + **Power BI icons**: Attributions for icons used in the report.
   + <a href="https://www.flaticon.com/free-icons/eye" title="eye icons">Eye icons created by Kiranshastry - Flaticon</a>
