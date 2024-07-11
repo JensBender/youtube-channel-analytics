@@ -47,19 +47,21 @@
 
 <!-- SUMMARY -->
 ## 🎯 Summary
-+ Built an ETL (Extract, Transform, Load) pipeline leveraging Apache Airflow, which involved:
-  + Extracting YouTube channel data through the YouTube API
-  + Transforming data by leveraging NumPy and Pandas
-  + Loading the processed data into a MySQL database hosted on AWS
-+ Showcased the main topics of the channel using a word cloud
+Built an **ETL pipeline** to analyze and compare YouTube channel performance, involving:
++ **Extraction**: Collected data on three selected channels, including videos and comments, using the YouTube API
++ **Transformation**: Cleaned and processed data with Pandas
++ **Loading**: Stored data in a MySQL database on AWS
++ **Automation**: Managed the entire ETL workflow using Apache Airflow, Docker, and AWS 
++ **Visualization**: Created a PowerBI report to compare channel performance on key metrics  
 
 ### 🛠️ Built With
 * [![Python][Python-badge]][Python-url]
-* [![NumPy][NumPy-badge]][NumPy-url]
 * [![Pandas][Pandas-badge]][Pandas-url]
 * [![MySQL][MySQL-badge]][MySQL-url]
+* [![Airflow][Airflow-badge]][Airflow-url]
+* [![Docker][Docker-badge]][Docker-url]
 * [![AWS][AWS-badge]][AWS-url]
-* [![Jupyter Notebook][JupyterNotebook-badge]][JupyterNotebook-url]
+* [![Power BI][PowerBI-badge]][PowerBI-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -116,13 +118,15 @@ This project was made possible with the help of the following resources and tuto
 <!-- MARKDOWN LINKS -->
 [Python-badge]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [Python-url]: https://www.python.org/
-[NumPy-badge]: https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white
-[NumPy-url]: https://numpy.org/
 [Pandas-badge]: https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white
 [Pandas-url]: https://pandas.pydata.org/
 [MySQL-badge]: https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white 
 [MySQL-url]: https://www.mysql.com/
+[Airflow-badge]: https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white
+[Airflow-url]: https://airflow.apache.org/
+[Docker-badge]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com/
 [AWS-badge]: https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white
 [AWS-url]: https://aws.amazon.com/
-[JupyterNotebook-badge]: https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white
-[JupyterNotebook-url]: https://jupyter.org/
+[PowerBI-badge]: https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black
+[PowerBI-url]: https://www.microsoft.com/en-us/power-platform/products/power-bi
