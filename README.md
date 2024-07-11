@@ -68,7 +68,7 @@ Built an **ETL pipeline** to analyze and compare YouTube channel performance, in
 
 <!-- MOTIVATION -->
 ## 💡 Motivation
-+ **Problem**: Analyzing the performance of a YouTube channel is crucial for content creators and marketers alike. However, manual data extraction and analysis can be time-consuming and prone to errors.
++ **Problem**:  Analyzing and comparing the performance of multiple YouTube channels is crucial for content creators and marketers. Most available tools focus on single-channel analytics, making it difficult to perform comparisons with similar YouTube channels.
 + **Project goal**: Empower content creators and marketers with insights into a YouTube channel's performance to enable informed decision-making and content optimization strategies by developing an automated ETL pipeline and providing insightful visualizations.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -76,10 +76,11 @@ Built an **ETL pipeline** to analyze and compare YouTube channel performance, in
 
 <!-- ETL PIPELINE -->
 ## 🔄 ETL Pipeline
-Built using Apache Airflow to automate the extraction, transformation, and loading of YouTube channel data.
-+ **Data Extraction**: Utilized the YouTube API to extract comprehensive data about the channel, including video metadata, view counts, likes, comments, etc.
-+ **Data Transformation**: Implemented data manipulation and transformation techniques using NumPy and Pandas to prepare the extracted data for analysis.
-+ **Data Loading**: Stored the transformed data in a MySQL database hosted on AWS, ensuring persistent storage and easy accessibility for analysis.
+Built using Apache Airflow to automate the extraction, transformation, and loading of data from multiple YouTube channels.
++ **Data Extraction**: Utilized the YouTube API to gather comprehensive data from three selected channels, including video metadata, view counts, likes, comments, and more.
++ **Data Transformation**: Implemented data manipulation and transformation techniques using Pandas to prepare the extracted data for analysis.
++ **Data Loading**: Stored the transformed data in a MySQL database hosted on an AWS RDS instance, ensuring persistent storage and facilitating easy access for comparative analysis.
++ **Automation**: Orchestrated the ETL workflow using Apache Airflow with Docker, hosted on an AWS EC2 t2.micro instance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
