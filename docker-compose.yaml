@@ -1,0 +1,109 @@
+version: '3.7'
+
+x-airflow-common: &airflow-common
+  image: custom-airflow:2.9.2
+  environment: &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__CORE__STORE_DAG_CODE: 'false'
+    AIRFLOW__CORE__STORE_SERIALIZED_DAGS: 'false'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+    AIRFLOW__CORE__LOAD_DEFAULTS: 'false'
+    AIRFLOW__CORE__LAZY_LOAD_PLUGINS: 'true'
+    AIRFLOW__CORE__LAZY_DISCOVER_PROVIDERS: 'true'
+    AIRFLOW__CORE__PARALLELISM: 1
+    AIRFLOW__CORE__MAX_ACTIVE_TASKS_PER_DAG: 1
+    AIRFLOW__CORE__MAX_ACTIVE_RUNS_PER_DAG: 1
+    AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+    AIRFLOW__SCHEDULER__USE_JOB_SCHEDULE: 'false'
+    AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
+    AIRFLOW__WEBSERVER__WORKERS: 1
+    AIRFLOW__WEBSERVER__WORKER_REFRESH_INTERVAL: 6000
+    AIRFLOW__WEBSERVER__WORKER_REFRESH_BATCH_SIZE: 1
+    AIRFLOW__WEBSERVER__WEB_SERVER_WORKER_TIMEOUT: 300
+    AIRFLOW__WEBSERVER__WEB_SERVER_MASTER_TIMEOUT: 300
+    AIRFLOW__WEBSERVER__UPDATE_FAB_PERMS: 'false'
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'false'
+    YOUTUBE_API_KEY: ${youtube_api_key}
+    AWS_MYSQL_ENDPOINT: ${aws_mysql_endpoint}
+    AWS_MYSQL_USER: ${aws_mysql_user}
+    AWS_MYSQL_PASSWORD: ${aws_mysql_password}
+  volumes:
+    - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
+    - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
+    - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
+    - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
+    - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
+    - airflow-db-volume:/opt/airflow
+  user: "${AIRFLOW_UID:-50000}:0"
+
+services:
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 300s
+      timeout: 120s
+      retries: 3
+      start_period: 300s
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.8'
+          memory: 768M
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    healthcheck:
+      test: ["CMD-SHELL", "[ -f /opt/airflow/airflow.db ]"]
+      interval: 120s
+      timeout: 60s
+      retries: 5
+      start_period: 120s
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 384M
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+
+  airflow-init:
+    <<: *airflow-common
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        mkdir -p /opt/airflow/{dags,logs,plugins}
+        chown -R "${AIRFLOW_UID:-50000}:0" /opt/airflow
+        chmod -R g+w /opt/airflow
+        exec /entrypoint airflow db init && \
+        airflow users create \
+          --username ${_AIRFLOW_WWW_USER_USERNAME:-airflow} \
+          --firstname ${_AIRFLOW_FIRSTNAME:-Airflow} \
+          --lastname ${_AIRFLOW_LASTNAME:-Admin} \
+          --role Admin \
+          --email ${_AIRFLOW_EMAIL:-airflow@example.com} \
+          --password ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+    environment:
+      <<: *airflow-common-env
+      _AIRFLOW_DB_UPGRADE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
+      _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+    user: "0:0"
+
+volumes:
+  airflow-db-volume:
