@@ -11,7 +11,7 @@
   </a>
   <p>
     <br />
-    Provide insights about a YouTube channel’s performance.
+    Empower YouTubers with actionable insights into channel performance relative to similar channels using an automated ETL pipeline for data collection. Visualize key performance metrics and conduct comparative analysis through an interactive PowerBI report.
     <br />
   </p>
 </div> 
