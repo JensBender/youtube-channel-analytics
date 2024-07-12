@@ -85,7 +85,7 @@ def etl_pipeline():
         channel_df = pd.DataFrame(channels_ls) 
         
         # Save pandas DataFrame as CSV file
-        channel_df.to_csv("/opt/airflow/data/channel_df_extracted.csv")
+        channel_df.to_csv("/opt/airflow/data/channel_df_extracted.csv", index=False)
 
         # Extract video data
         # Initialize an empty list to store dictionaries for each video
@@ -157,7 +157,7 @@ def etl_pipeline():
         videos_df = pd.DataFrame(videos_ls)  
 
         # Save pandas DataFrame as CSV file
-        videos_df.to_csv("/opt/airflow/data/videos_df_extracted.csv")  
+        videos_df.to_csv("/opt/airflow/data/videos_df_extracted.csv", index=False)  
 
         # Extract comments data
         # Initialize an empty list to store comments
@@ -207,7 +207,7 @@ def etl_pipeline():
         comments_df = pd.DataFrame(comments_ls)    
 
         # Save pandas DataFrame as CSV file
-        comments_df.to_csv("/opt/airflow/data/comments_df_extracted.csv")  
+        comments_df.to_csv("/opt/airflow/data/comments_df_extracted.csv", index=False)  
     
     # Transform data
     @task 
@@ -235,7 +235,7 @@ def etl_pipeline():
         videos_df["video_duration"] = videos_df["video_duration"].apply(convert_iso8601_duration)
         
         # Save pandas DataFrame as CSV file
-        videos_df.to_csv("/opt/airflow/data/videos_df_transformed.csv")
+        videos_df.to_csv("/opt/airflow/data/videos_df_transformed.csv", index=False)
 
     # Load data from Pandas DataFrames into MySQL tables
     @task 
