@@ -27,7 +27,7 @@ default_args = {
 @dag(
     dag_id="etl_pipeline",
     description="Extract data from YouTube API, transform, and load into MySQL database",
-    start_date=datetime(2024, 7, 12),
+    start_date=datetime(2024, 7, 11),
     schedule_interval="0 0 * * *",
     catchup=False,
     tags=["Jens", "data engineering"],
