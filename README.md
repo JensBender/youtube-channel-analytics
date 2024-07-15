@@ -47,12 +47,15 @@
 
 <!-- SUMMARY -->
 ## 🎯 Summary
-To empower YouTube content creators and marketers with actionable insights into their channels' performance, especially in comparison to related channels, I developed an **ETL pipeline** for analyzing and comparing YouTube channel performance. This involved:
-+ **Data Extraction**: Collected data on three selected channels, including videos and comments, using the YouTube API.
-+ **Data Transformation**: Cleaned and processed data with Pandas.
-+ **Data Loading**: Stored the processed data in a MySQL database on AWS.
+To empower YouTube content creators and marketers with actionable insights into their channels' performance, especially in comparison to related channels, I developed an **ETL pipeline**. This involved:
+
++ **Data Extraction**: Utilized the YouTube API to gather extensive data from three selected channels, including videos and comments data.
++ **Data Transformation**: Employed Pandas to clean and process the extracted data for analysis.
++ **Data Loading**: Stored the transformed data in a MySQL database hosted on AWS.
 + **Automation**: Managed the ETL workflow using Apache Airflow, Docker, and AWS.
-+ **Data Visualization**: Created an interactive PowerBI report that provides insigths into channel performance, featuring key metrics and comparative analysis.
++ **Data Visualization**: Designed an interactive PowerBI report to deliver insigths into channel performance, featuring key metrics and comparative analysis. 
+
+This project enables YouTube content creators to easily monitor and evaluate their channel's performance relative to their peers, allowing for more informed decision-making and strategic planning.
 
 ### 🛠️ Built With
 * [![Python][Python-badge]][Python-url]
