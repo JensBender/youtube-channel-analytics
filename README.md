@@ -53,7 +53,7 @@ To empower YouTube content creators and marketers with actionable insights into 
 + **Data Transformation**: Employed Pandas to clean and process the extracted data for analysis.
 + **Data Loading**: Stored the transformed data in a MySQL database hosted on AWS.
 + **Automation**: Managed the ETL workflow using Apache Airflow, Docker, and AWS.
-+ **Data Visualization**: Designed an interactive PowerBI report to deliver insigths into channel performance, featuring key metrics and comparative analysis. 
++ **Data Visualization**: Designed an interactive Power BI report to deliver insigths into channel performance, featuring key metrics and comparative analysis. 
 
 This project enables YouTube content creators to easily monitor and evaluate their channel's performance relative to their peers, allowing for more informed decision-making and strategic planning.
 
