@@ -47,7 +47,7 @@
 
 <!-- SUMMARY -->
 ## 🎯 Summary
-To empower YouTube content creators and marketers with actionable insights into their channels' performance, especially in comparison to related channels, I developed an **ETL pipeline**. This involved:
+To empower YouTube content creators and marketers with actionable insights into their channel's performance, especially in comparison to related channels, I developed a comprehensive **ETL pipeline** and designed an interactive **Power BI report**. This project involved:
 
 + **Data Extraction**: Utilized the YouTube API to gather extensive data from three selected channels, including videos and comments.
 + **Data Transformation**: Employed Pandas to clean and process the extracted data for analysis.
