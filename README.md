@@ -65,6 +65,8 @@ This project enables YouTube content creators to easily monitor and evaluate the
 * [![Docker][Docker-badge]][Docker-url]
 * [![AWS][AWS-badge]][AWS-url]
 * [![Power BI][PowerBI-badge]][PowerBI-url]
+* [![Visual Studio Code][VisualStudioCode-badge]][VisualStudioCode-url]
+* [![Jupyter Notebook][JupyterNotebook-badge]][JupyterNotebook-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -145,3 +147,7 @@ This project was made possible with the help of the following resources and tuto
 [AWS-url]: https://aws.amazon.com/
 [PowerBI-badge]: https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black
 [PowerBI-url]: https://www.microsoft.com/en-us/power-platform/products/power-bi
+[VisualStudioCode-badge]: https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white
+[VisualStudioCode-url]: https://code.visualstudio.com/
+[JupyterNotebook-badge]: https://img.shields.io/badge/Jupyter-F37626.svg?style=for-the-badge&logo=Jupyter&logoColor=white
+[JupyterNotebook-url]: https://jupyter.org/
