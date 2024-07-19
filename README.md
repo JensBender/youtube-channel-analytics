@@ -87,6 +87,8 @@ Built using Apache Airflow to automate the extraction, transformation, and loadi
 + **Data Loading**: Stored the transformed data in a MySQL database hosted on an AWS RDS instance, ensuring persistent storage and facilitating easy access for comparative analysis.
 + **Automation**: Orchestrated the ETL workflow using Apache Airflow with Docker, hosted on an AWS EC2 t2.micro instance.
 
+<img src="images/etl_pipeline.svg" alt="ETL pipeline">  
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
