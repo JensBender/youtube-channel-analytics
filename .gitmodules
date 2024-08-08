@@ -1,3 +1,0 @@
-[submodule "huggingface_space"]
-	path = huggingface_space
-	url = git@hf.co:spaces/JensBender/distilbert-sentiment-analysis-api
