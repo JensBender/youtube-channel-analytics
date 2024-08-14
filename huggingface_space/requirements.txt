@@ -1,2 +1,2 @@
-transformers
-gradio
+transformers=4.44.0
+gradio=4.41.0
