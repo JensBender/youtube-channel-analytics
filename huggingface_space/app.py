@@ -9,7 +9,7 @@ distilbert_pipeline = pipeline(task="sentiment-analysis", model="distilbert-base
 def analyze_sentiment(text, model_choice):
     if model_choice == "RoBERTa":
         result = roberta_pipeline(text)[0]
-        label = result["label"]
+        label = result["label"].lower()
         score = result["score"]
     else:
         result = distilbert_pipeline(text)[0]   
