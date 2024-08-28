@@ -26,7 +26,6 @@ def analyze_sentiment(data):
 
     # Prepare the output JSON structure
     output = {
-        "comment_text": df["comment_text"].tolist(),
         f"{model_choice}_sentiment": df[f"{model_choice}_sentiment"].tolist(),
         f"{model_choice}_confidence": df[f"{model_choice}_confidence"].tolist()
     }    
