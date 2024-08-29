@@ -8,7 +8,7 @@ distilbert_pipeline = pipeline(task="sentiment-analysis", model="distilbert-base
 
 # Function to perform sentiment analysis on multiple YouTube comments
 def analyze_sentiment(data):
-    # Convert comments from a list of strings in the JSON input data to a Pandas DataFrame
+    # Convert comments from a list in the JSON input data to a Pandas DataFrame
     df = pd.DataFrame(data["comment_text"], columns=["comment_text"])
 
     # Store model choice from JSON input data
@@ -24,7 +24,7 @@ def analyze_sentiment(data):
     df[f"{model_choice}_sentiment"] = df["result"].apply(lambda x: x["label"].lower())
     df[f"{model_choice}_confidence"] = df["result"].apply(lambda x: round(x["score"], 3))
 
-    # Prepare the output JSON structure
+    # Output data in JSON format 
     output = {
         f"{model_choice}_sentiment": df[f"{model_choice}_sentiment"].tolist(),
         f"{model_choice}_confidence": df[f"{model_choice}_confidence"].tolist()
@@ -38,7 +38,7 @@ iface = gr.Interface(
     inputs=gr.JSON(),
     outputs=gr.JSON(),
     title="Sentiment Analysis with RoBERTa and DistilBERT",
-    description="Send a JSON object with the model choice and a list of comments via API request for sentiment analysis."
+    description="Send a JSON object with a list of comments and the model choice via API request for sentiment analysis."
 )
 
 # Launch Gradio interface as a web application
