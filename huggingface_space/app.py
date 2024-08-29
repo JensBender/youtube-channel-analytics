@@ -3,14 +3,19 @@ from transformers import pipeline
 import pandas as pd
 
 # Initialize sentiment analysis pipelines
-roberta_pipeline = pipeline(task="sentiment-analysis", 
-                            model="cardiffnlp/twitter-roberta-base-sentiment-latest", 
-                            truncation=True, 
-                            max_length=512)
-distilbert_pipeline = pipeline(task="sentiment-analysis", 
-                               model="distilbert-base-uncased-finetuned-sst-2-english", 
-                               truncation=True, 
-                               max_length=512)
+roberta_pipeline = pipeline(
+    task="sentiment-analysis", 
+    model="cardiffnlp/twitter-roberta-base-sentiment-latest", 
+    truncation=True, 
+    max_length=512
+)
+
+distilbert_pipeline = pipeline(
+    task="sentiment-analysis", 
+    model="distilbert-base-uncased-finetuned-sst-2-english", 
+    truncation=True, 
+    max_length=512
+)
 
 # Function to perform sentiment analysis on multiple YouTube comments
 def analyze_sentiment(data):
