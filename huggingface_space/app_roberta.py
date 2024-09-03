@@ -54,10 +54,7 @@ iface = gr.Interface(
     inputs=gr.JSON(),
     outputs=gr.JSON(),
     title="Sentiment Analysis with RoBERTa",
-    description="Send a JSON object with a list of comments via API request for sentiment analysis.",
-    examples=[
-        {"comment_text": ["This is great!", "I don't like this.", "Neutral statement."]}
-    ]
+    description="Send a JSON object with a list of comments via API request for sentiment analysis."
 )
 
 # Launch Gradio interface as a web application
