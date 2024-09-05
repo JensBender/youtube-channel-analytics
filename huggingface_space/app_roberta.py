@@ -1,6 +1,11 @@
 import gradio as gr
 from transformers import pipeline
 import pandas as pd
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger()
 
 # Initialize sentiment analysis pipeline
 roberta_pipeline = pipeline(
@@ -27,10 +32,11 @@ def analyze_single_sentiment(comment):
             return result
         else:
             # Return a default dictionary if the result format is unexpected
+            logger.warning(f"Unexpected result format for comment: '{comment}'")
             return {"label": "unknown", "score": 0.0}
     except Exception as e:
         # Log the error and return a default dictionary in case of an exception
-        print(f"Error analyzing comment: '{comment}', Error: {str(e)}")
+        logger.error(f"Error analyzing comment: '{comment}', Error: {str(e)}", exc_info=True)
         return {"label": "error", "score": 0.0}
     
 def analyze_sentiment(data):
@@ -48,6 +54,7 @@ def analyze_sentiment(data):
     """
     # Check correct format of input data  
     if "comment_text" not in data or not isinstance(data["comment_text"], list):
+        logger.error("Input must be a dictionary with a 'comment_text' key containing a list of comments")
         raise ValueError("Input must be a dictionary with a 'comment_text' key containing a list of comments")
     
     # Convert list of comments in the JSON input data to a Pandas DataFrame
@@ -55,7 +62,7 @@ def analyze_sentiment(data):
 
     # Apply sentiment analysis to all comments in the DataFrame  
     df["result"] = df["comment_text"].apply(analyze_single_sentiment)
-   
+
     # Extract sentiment and confidence into separate columns
     df["roberta_sentiment"] = df["result"].apply(lambda x: x["label"].lower())
     df["roberta_confidence"] = df["result"].apply(lambda x: round(x["score"], 3))
@@ -65,7 +72,7 @@ def analyze_sentiment(data):
         "roberta_sentiment": df["roberta_sentiment"].tolist(),
         "roberta_confidence": df["roberta_confidence"].tolist()
     }  
-     
+    
     return output
 
 # Create Gradio interface
