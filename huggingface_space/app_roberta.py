@@ -44,21 +44,21 @@ def analyze_sentiment(data):
     Perform sentiment analysis on multiple YouTube comments.
     
     Args:
-        data (dict): A dictionary containing a 'comment_text' key with a list of comments.
+        data (dict): A dictionary containing a 'comment_id' key with a list of IDs and a 'comment_text' key with a list of comments.
     
     Returns:
-        dict: A dictionary containing lists of sentiment labels and confidence scores.
+        dict: A dictionary containing lists of comment IDs, sentiment labels and confidence scores.
     
     Raises:
         ValueError: If the input data is not in the correct format.
     """
-    # Check correct format of input data  
+    # Check correct format of input data comment texts 
     if "comment_text" not in data or not isinstance(data["comment_text"], list):
         logger.error("Input must be a dictionary with a 'comment_text' key containing a list of comments")
         raise ValueError("Input must be a dictionary with a 'comment_text' key containing a list of comments")
     
-    # Convert list of comments in the JSON input data to a Pandas DataFrame
-    df = pd.DataFrame(data["comment_text"], columns=["comment_text"])
+    # Convert JSON input data to a Pandas DataFrame
+    df = pd.DataFrame(data)
 
     # Apply sentiment analysis to all comments in the DataFrame  
     df["result"] = df["comment_text"].apply(analyze_single_sentiment)
@@ -67,8 +67,9 @@ def analyze_sentiment(data):
     df["roberta_sentiment"] = df["result"].apply(lambda x: x["label"].lower())
     df["roberta_confidence"] = df["result"].apply(lambda x: round(x["score"], 3))
     
-    # Prepare output data in JSON format with sentiment and confidence lists
+    # Prepare output data in JSON format with comment_id, sentiment and confidence lists
     output = {
+        "comment_id": df["comment_id"].tolist(),
         "roberta_sentiment": df["roberta_sentiment"].tolist(),
         "roberta_confidence": df["roberta_confidence"].tolist()
     }  
