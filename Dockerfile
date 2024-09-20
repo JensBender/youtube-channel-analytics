@@ -12,4 +12,5 @@ RUN pip install --no-cache-dir \
     pandas \
     sqlalchemy \
     mysql-connector-python \
-    google-api-python-client
+    google-api-python-client \
+    gradio-client 
