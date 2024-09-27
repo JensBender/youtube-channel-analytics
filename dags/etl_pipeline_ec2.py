@@ -349,6 +349,7 @@ def etl_pipeline():
         tables_to_drop = ["comments", "videos", "channels"]
         for table in tables_to_drop:
             cursor.execute(f"DROP TABLE IF EXISTS {table};")
+        connection.commit()
                 
         try:
             # Create an SQLAlchemy engine for interacting with the MySQL database
