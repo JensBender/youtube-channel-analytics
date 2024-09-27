@@ -369,9 +369,13 @@ def etl_pipeline():
             except Exception as e:
                 print("Error loading videos data:", e)
             
-            # Load the YouTube comments DataFrame into the MySQL comments table
+            # Load the YouTube comments DataFrame into the MySQL comments table in chunks of 10000 comments 
             try:
-                comments_df.to_sql("comments", con=engine, if_exists="replace", index=False)
+                chunksize = 10000
+                for i in range(0, len(comments_df), chunksize):
+                    chunk = comments_df.iloc[i:i+chunksize]
+                    chunk.to_sql("comments", con=engine, if_exists="append", index=False)
+                    print(f"Loaded {i+len(chunk)} rows out of {len(comments_df)} into comments table")
                 print("Comments data successfully loaded into AWS MySQL database.")
             except Exception as e:
                 print("Error loading comments data:", e)
