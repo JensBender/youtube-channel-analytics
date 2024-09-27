@@ -211,8 +211,8 @@ def etl_pipeline():
         # Convert list of dictionaries to pandas DataFrame
         comments_df = pd.DataFrame(comments_ls)    
 
-        # Drop comments with missing comment ID or comment text (e.g. because the comment was deleted, marked as spam, or private)
-        comments_df = comments_df.dropna(subset=["comment_id", "comment_text"])
+        # Drop comments with empty string as comment text (e.g. because the comment was deleted, marked as spam, or private)
+        comments_df = comments_df[comments_df["comment_text"] != ""]
 
         # Drop duplicate comments
         comments_df = comments_df.drop_duplicates()
