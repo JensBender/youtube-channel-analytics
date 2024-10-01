@@ -9,6 +9,7 @@ import logging
 import mysql.connector
 from sqlalchemy import create_engine
 import re
+import csv
 
 # Get YouTube API key from docker environment
 youtube_api_key = os.environ.get("YOUTUBE_API_KEY")
@@ -218,7 +219,7 @@ def etl_pipeline():
         comments_df = comments_df.drop_duplicates()
 
         # Save pandas DataFrame as CSV file
-        comments_df.to_csv("/opt/airflow/data/comments_df_extracted.csv", index=False)  
+        comments_df.to_csv("/opt/airflow/data/comments_df_extracted.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)  
     
     # Transform data
     @task 
@@ -323,7 +324,7 @@ def etl_pipeline():
         comments_df = pd.merge(comments_df, results_df, on="comment_id")
 
         # Save pandas DataFrame as CSV file
-        comments_df.to_csv("/opt/airflow/data/comments_df_transformed.csv", index=False)
+        comments_df.to_csv("/opt/airflow/data/comments_df_transformed.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
 
     # Load data from Pandas DataFrames into MySQL tables
     @task 
