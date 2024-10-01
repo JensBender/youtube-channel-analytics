@@ -7,6 +7,7 @@ airflow.cfg
 webserver_config.py 
 /dags/__pycache__
 /logs
+/data
 images/airflow_logo.png
 images/aws_ec2_logo.svg
 images/aws_logo.svg.png
