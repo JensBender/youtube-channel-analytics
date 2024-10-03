@@ -50,7 +50,7 @@
 To empower YouTube content creators and marketers with actionable insights into their channel's performance, especially in comparison to related channels, I developed a comprehensive **ETL pipeline** and designed an interactive **Power BI report**. This project involved:
 
 + **Data Extraction**: Utilized the YouTube API to gather extensive data from three selected channels, including videos and comments.
-+ **Data Transformation**: Employed Pandas to clean and process the extracted data for analysis.
++ **Data Transformation**: Performed sentiment analysis on video comments via API requests to a RoBERTa sentiment analysis model, which I deployed using Gradio on a private Hugging Face Space.
 + **Data Loading**: Stored the transformed data in a MySQL database hosted on AWS.
 + **Automation**: Managed the ETL workflow using Apache Airflow, Docker, and AWS.
 + **Data Visualization**: Designed an interactive Power BI report to deliver insigths into channel performance, featuring key metrics and comparative analysis. 
