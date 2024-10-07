@@ -75,8 +75,8 @@ This project enables YouTube content creators to easily monitor and evaluate the
 
 <!-- MOTIVATION -->
 ## 💡 Motivation
-+ **Problem**:  Analyzing and comparing the performance of multiple YouTube channels is crucial for content creators and marketers. Most available tools focus on single-channel analytics, making it difficult to perform comparisons with similar YouTube channels.
-+ **Project Goal**: Empower content creators and marketers with insights into a YouTube channel's performance to enable informed decision-making and content optimization strategies by developing an automated ETL pipeline and providing insightful visualizations.
++ **Problem**:  Analyzing and comparing the performance of multiple YouTube channels is crucial for content creators and marketers. Most available tools focus on single-channel analytics, making it difficult to perform comparisons with similar YouTube channels. Additionally, understanding audience sentiment towards content is often overlooked, despite its significant impact on channel growth and engagement.
++ **Project Goal**: Empower content creators and marketers with insights into a YouTube channel's performance and audience sentiment to enable informed decision-making and content optimization strategies. This is achieved by developing an automated ETL pipeline and by providing insightful visualizations.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
