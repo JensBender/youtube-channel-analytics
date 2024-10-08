@@ -11,7 +11,7 @@
   </a>
   <p>
     <br />
-    Empower YouTubers with actionable insights into channel performance relative to similar channels using an automated ETL pipeline, sentiment analysis of video comments, and interactive Power BI report visualization of key performance metrics.
+    Empower YouTubers with actionable insights into channel performance relative to similar channels using an automated ETL pipeline and an interactive Power BI report for comparative analysis of key performance metrics.
     <br />
   </p>
 </div> 
