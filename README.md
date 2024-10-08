@@ -96,13 +96,13 @@ Built using Apache Airflow to automate the extraction, transformation, and loadi
 
 <!-- DATA VISUALIZATION -->
 ## 📊 Data Visualization
-Created an interactive Power BI report with multiple pages designed to offer in-depth insights into channel performance and audience engagement. The report queries data directly from the MySQL database hosted on AWS RDS, ensuring that the visualizations are always based on the latest available data.
+Created an interactive Power BI report offering in-depth insights into channel performance and audience engagement. The report queries data directly from the MySQL database hosted on AWS RDS, ensuring that the visualizations are always based on the latest available data.
 
 **Home Page**: Provides an overview with subscriber counts, video metrics, and area charts showing videos by month. Users can select time periods and compare channels side-by-side for a comprehensive analysis. 
 
 <img src="images/powerbi_home.PNG" alt="Power BI Home" style="margin-bottom: 20px;">  
 
-**Engagement Page**: Visualizes key engagement metrics such as views, likes, and comments. Includes per-video and per-1000-views averages, complemented by area charts tracking monthly comment trends. 
+**Engagement Page**: Visualizes key engagement metrics related to views and likes, including per-video and per-1000-view averages. 
 
 <img src="images/powerbi_engagement.PNG" alt="Power BI Engagement" style="margin-bottom: 20px;">  
 
@@ -110,7 +110,7 @@ Created an interactive Power BI report with multiple pages designed to offer in-
 
 <img src="images/powerbi_top5.PNG" alt="Power BI Top 5 Videos"  style="margin-bottom: 20px;">  
 
-The report facilitates an interactive exploration of various metrics, allowing users to easily navigate through time periods and metrics to uncover patterns and trends in channel performance and audience behavior.
+The report enables users to navigate interactively through metrics and time periods to discover trends in channel performance and audience engagement.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
