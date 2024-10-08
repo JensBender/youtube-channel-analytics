@@ -85,7 +85,7 @@ This project enables YouTube content creators to easily monitor and evaluate the
 ## 🔄 ETL Pipeline
 Built using Apache Airflow to automate the extraction, transformation, and loading of data from multiple YouTube channels.
 + **Data Extraction**: Utilized the YouTube API to gather comprehensive data from three selected channels, including video metadata, view counts, likes, comments, and more.
-+ **Data Transformation**: Performed sentiment analysis on video comments using a [RoBERTa model](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest), featuring 125 million parameters, trained on ~124 million tweets and fine-tuned using the TweetEval benchmark. Deployed the model on a private Hugging Face Space using Gradio and integrated it into the ETL pipeline via API requests using Gradio client.
++ **Data Transformation**: Performed sentiment analysis on video comments using a [RoBERTa model](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest), featuring 125 million parameters, trained on ~124 million tweets and fine-tuned using the TweetEval benchmark. Deployed the model on a private Hugging Face Space using Gradio and integrated it into the ETL pipeline via API requests.
 + **Data Loading**: Stored the transformed data in a MySQL database hosted on an AWS RDS instance, ensuring persistent storage and facilitating easy access for comparative analysis.
 + **Automation**: Orchestrated the ETL workflow using Apache Airflow with Docker, hosted on an AWS EC2 t2.micro instance.
 
