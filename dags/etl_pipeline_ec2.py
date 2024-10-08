@@ -4,9 +4,12 @@ from datetime import datetime, timedelta
 import os
 import pandas as pd
 from googleapiclient.discovery import build
+from gradio_client import Client
+import logging
 import mysql.connector
 from sqlalchemy import create_engine
 import re
+import csv
 
 # Get YouTube API key from docker environment
 youtube_api_key = os.environ.get("YOUTUBE_API_KEY")
@@ -15,6 +18,9 @@ youtube_api_key = os.environ.get("YOUTUBE_API_KEY")
 aws_mysql_endpoint = os.environ.get("AWS_MYSQL_ENDPOINT")
 aws_mysql_user = os.environ.get("AWS_MYSQL_USER") 
 aws_mysql_password = os.environ.get("AWS_MYSQL_PASSWORD")
+
+# Get Hugging Face access token from docker environment
+huggingface_access_token = os.environ.get("HUGGINGFACE_ACCESS_TOKEN")
 
 # Define DAG arguments
 default_args = {
@@ -206,12 +212,19 @@ def etl_pipeline():
         # Convert list of dictionaries to pandas DataFrame
         comments_df = pd.DataFrame(comments_ls)    
 
+        # Drop comments with empty string as comment text (e.g. because the comment was deleted, marked as spam, or private)
+        comments_df = comments_df[comments_df["comment_text"] != ""]
+
+        # Drop duplicate comments
+        comments_df = comments_df.drop_duplicates()
+
         # Save pandas DataFrame as CSV file
-        comments_df.to_csv("/opt/airflow/data/comments_df_extracted.csv", index=False)  
+        comments_df.to_csv("/opt/airflow/data/comments_df_extracted.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)  
     
     # Transform data
     @task 
     def transform():
+        # Convert video duration
         # Function to convert the YouTube video duration from ISO 8601 format (str) to seconds (int)
         def convert_iso8601_duration(duration):
             # Regular expression to match hours, minutes, and seconds
@@ -237,13 +250,89 @@ def etl_pipeline():
         # Save pandas DataFrame as CSV file
         videos_df.to_csv("/opt/airflow/data/videos_df_transformed.csv", index=False)
 
+        # Sentiment analysis of comments
+        # Load CSV file into pandas DataFrame
+        comments_df = pd.read_csv("/opt/airflow/data/comments_df_extracted.csv")
+        
+        # Initialize logger to log errors and output in airflow logs
+        logger = logging.getLogger(__name__)
+        
+        # Initialize Gradio client to connect to my personal RoBERTa Sentiment Analysis API on Hugging Face Spaces
+        # Note: Ensure the Gradio web application with RoBERTa Sentiment Analysis API is running on Hugging Face Spaces
+        client = Client("JensBender/roberta-sentiment-analysis-api", hf_token=huggingface_access_token)  
+
+        # Function to get sentiment scores of comments in batches via API requests
+        def get_sentiment(df, batch_size=500):  
+            # Initialize a dictionary to store sentiment analysis results
+            result = {
+                "comment_id": [],
+                "sentiment": [],
+                "sentiment_confidence": []
+            }
+
+            # Calculate the number of batches
+            num_batches = (len(df) + batch_size - 1) // batch_size
+            
+            # Iterate over the DataFrame in batches
+            for i in range(0, len(df), batch_size):
+                # Calculate the number of the current batch
+                batch_number = i // batch_size + 1
+                
+                # Log batch number being processed
+                logger.info(f"Processing batch {batch_number}/{num_batches}")
+
+                # Extract the current batch
+                batch_df = df.iloc[i:i+batch_size]    
+                
+                # Prepare data of current batch in JSON format for API request 
+                batch_data = {
+                    "comment_id": batch_df["comment_id"].tolist(),
+                    "comment_text": batch_df["comment_text"].tolist()
+                }
+                
+                try:
+                    # Send batch to API and get results
+                    batch_result = client.predict(
+                        batch_data,
+                        api_name="/predict"
+                    )
+                
+                    # Append the results of the current batch to the corresponding lists in the result dictionary
+                    result["comment_id"].extend(batch_result["comment_id"])
+                    result["sentiment"].extend(batch_result["roberta_sentiment"])
+                    result["sentiment_confidence"].extend(batch_result["roberta_confidence"])
+
+                    # Log progress in case of success
+                    logger.info(f"Batch {batch_number} processed successfully")
+                
+                except Exception as e:
+                    # Log error in case of failure
+                    logger.error(f"Error processing batch {batch_number}: {str(e)}")
+
+            # Log completion of all batches
+            logger.info("Sentiment analysis completed")
+            # Return the dictionary with the sentiment analysis results of all comments
+            return result
+        
+        # Apply RoBERTa sentiment analysis
+        results_json = get_sentiment(comments_df)
+
+        # Convert results from JSON to Pandas DataFrame
+        results_df = pd.DataFrame(results_json)
+
+        # Merge the RoBERTa sentiment and confidence columns with the original DataFrame
+        comments_df = pd.merge(comments_df, results_df, on="comment_id")
+
+        # Save pandas DataFrame as CSV file
+        comments_df.to_csv("/opt/airflow/data/comments_df_transformed.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)
+
     # Load data from Pandas DataFrames into MySQL tables
     @task 
     def load():
         # Load CSV files into pandas DataFrames
         channel_df = pd.read_csv("/opt/airflow/data/channel_df_extracted.csv")
         videos_df = pd.read_csv("/opt/airflow/data/videos_df_transformed.csv")
-        comments_df = pd.read_csv("/opt/airflow/data/comments_df_extracted.csv")
+        comments_df = pd.read_csv("/opt/airflow/data/comments_df_transformed.csv")
         
         # Connect to AWS RDS MySQL server instance
         connection = mysql.connector.connect(
@@ -261,6 +350,7 @@ def etl_pipeline():
         tables_to_drop = ["comments", "videos", "channels"]
         for table in tables_to_drop:
             cursor.execute(f"DROP TABLE IF EXISTS {table};")
+        connection.commit()
                 
         try:
             # Create an SQLAlchemy engine for interacting with the MySQL database
@@ -280,9 +370,13 @@ def etl_pipeline():
             except Exception as e:
                 print("Error loading videos data:", e)
             
-            # Load the YouTube comments DataFrame into the MySQL comments table
+            # Load the YouTube comments DataFrame into the MySQL comments table in chunks of 10000 comments 
             try:
-                comments_df.to_sql("comments", con=engine, if_exists="replace", index=False)
+                chunksize = 10000
+                for i in range(0, len(comments_df), chunksize):
+                    chunk = comments_df.iloc[i:i+chunksize]
+                    chunk.to_sql("comments", con=engine, if_exists="append", index=False)
+                    print(f"Loaded {i+len(chunk)} rows out of {len(comments_df)} into comments table")
                 print("Comments data successfully loaded into AWS MySQL database.")
             except Exception as e:
                 print("Error loading comments data:", e)
