@@ -100,15 +100,15 @@ Created an interactive Power BI report with multiple pages designed to offer in-
 
 **Home Page**: Provides an overview with subscriber counts, video metrics, and area charts showing videos by month. Users can select time periods and compare channels side-by-side for a comprehensive analysis. 
 
-<img src="images/powerbi_home.PNG" alt="Power BI Home" style="margin-bottom: 15px;">  
+<img src="images/powerbi_home.PNG" alt="Power BI Home" style="margin-bottom: 20px;">  
 
 **Engagement Page**: Visualizes key engagement metrics such as views, likes, and comments. Includes per-video and per-1000-views averages, complemented by area charts tracking monthly comment trends. 
 
-<img src="images/powerbi_engagement.PNG" alt="Power BI Engagement" style="margin-bottom: 15px;">  
+<img src="images/powerbi_engagement.PNG" alt="Power BI Engagement" style="margin-bottom: 20px;">  
 
 **Top 5 Videos Page**: Highlights each channel's top 5 videos, with user-defined ranking criteria (views, likes, or comments) and clickable video links, enabling a tailored exploration of high-performing content. 
 
-<img src="images/powerbi_top5.PNG" alt="Power BI Top 5 Videos"  style="margin-bottom: 15px;">  
+<img src="images/powerbi_top5.PNG" alt="Power BI Top 5 Videos"  style="margin-bottom: 20px;">  
 
 The report facilitates an interactive exploration of various metrics, allowing users to easily navigate through time periods and metrics to uncover patterns and trends in channel performance and audience behavior.
 
