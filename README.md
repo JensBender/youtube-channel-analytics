@@ -98,7 +98,7 @@ Built using Apache Airflow to automate the extraction, transformation, and loadi
 ## 📊 Data Visualization
 Created an interactive Power BI report offering in-depth insights into channel performance and audience engagement. The report queries data directly from the MySQL database hosted on AWS RDS, ensuring that the visualizations are always based on the most up-to-date information.
 
-**Home Page**: Provides a comprehensive overview, including total subscribers, views, likes, and averages per video and per 1000 views. Users can easily compare multiple channels side-by-side to understand channel performance across key metrics relative to their peers. 
+**Home Page**: Provides a comprehensive overview, including total subscribers, views, likes, and averages per video and per 1000 views. Users can easily compare multiple channels side-by-side to understand channel performance across key metrics relative to their peers. Users can also filter data by specific time periods.
 
 <img src="images/powerbi_home.PNG" alt="Power BI Home" style="margin-bottom: 20px;">  
 
@@ -106,7 +106,7 @@ Created an interactive Power BI report offering in-depth insights into channel p
 
 <img src="images/powerbi_comments.PNG" alt="Power BI Comments" style="margin-bottom: 20px;">  
 
-**Videos Page**: Displays total video counts, average videos uploaded per month, average video length, and monthly upload trends over time, facilitating a deeper understanding of content production. 
+**Videos Page**: Displays total video counts, average videos uploaded per month, average video length, and monthly upload trends over time. Like other pages, time period filtering is available, facilitating a deeper understanding of content production. 
 
 <img src="images/powerbi_videos.PNG" alt="Power BI Videos" style="margin-bottom: 20px;">  
 
