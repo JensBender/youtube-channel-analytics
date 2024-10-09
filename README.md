@@ -102,10 +102,6 @@ Created an interactive Power BI report offering in-depth insights into channel p
 
 <img src="images/powerbi_home.PNG" alt="Power BI Home" style="margin-bottom: 20px;">  
 
-**Engagement Page**: Visualizes key metrics like views, likes, and averages per-video and per-1000-views. 
-
-<img src="images/powerbi_engagement.PNG" alt="Power BI Engagement" style="margin-bottom: 20px;">  
-
 **Comments Page**: Shows total comments, per-video and per-1000-view averages, monthly trends, and sentiment analysis, with time period filters. 
 
 <img src="images/powerbi_comments.PNG" alt="Power BI Comments" style="margin-bottom: 20px;">  
