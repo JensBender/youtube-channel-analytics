@@ -102,9 +102,13 @@ Created an interactive Power BI report offering in-depth insights into channel p
 
 <img src="images/powerbi_home.PNG" alt="Power BI Home" style="margin-bottom: 20px;">  
 
-**Comments Page**: Shows total comments, per-video and per-1000-view averages, monthly trends, and sentiment analysis, with time period filters. 
+**Comments Page**: Shows total comments, per-video and per-1000-view averages, monthly trends, and sentiment analysis. Users can select time periods for granular analysis.
 
 <img src="images/powerbi_comments.PNG" alt="Power BI Comments" style="margin-bottom: 20px;">  
+
+**Videos Page**: Displays total video counts, average videos uploaded per month, average video length, and monthly upload trends over time, facilitating a deeper understanding of content production. 
+
+<img src="images/powerbi_videos.PNG" alt="Power BI Videos" style="margin-bottom: 20px;">  
 
 **Top 5 Videos Page**: Ranks each channel's top 5 videos based on views, likes, or comments with clickable video links, enabling a tailored exploration of high-performing content. 
 
