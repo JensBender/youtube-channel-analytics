@@ -13,4 +13,5 @@ RUN pip install --no-cache-dir \
     sqlalchemy \
     mysql-connector-python \
     google-api-python-client \
-    gradio-client 
+    gradio-client \
+    tenacity
