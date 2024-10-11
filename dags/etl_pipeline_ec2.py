@@ -10,6 +10,7 @@ import mysql.connector
 from sqlalchemy import create_engine
 import re
 import csv
+from tenacity import retry, stop_after_attempt, wait_exponential, before_sleep_log
 
 # Get YouTube API key from docker environment
 youtube_api_key = os.environ.get("YOUTUBE_API_KEY")
@@ -261,7 +262,31 @@ def etl_pipeline():
         # Note: Ensure the Gradio web application with RoBERTa Sentiment Analysis API is running on Hugging Face Spaces
         client = Client("JensBender/roberta-sentiment-analysis-api", hf_token=huggingface_access_token)  
 
-        # Function to get sentiment scores of comments in batches via API requests
+        # Function to make a single API request to analyze the sentiment of a single batch of 500 comments with retries
+        @retry(
+            stop=stop_after_attempt(3),
+            wait=wait_exponential(min=4, max=10),
+            before_sleep=before_sleep_log(logger, logging.INFO)
+        )
+        def batch_api_request(batch_data):
+            try:
+                # Attempt to make the batch API request
+                response = client.predict(batch_data, api_name="/predict")
+                
+                # Check if response is a dictionary and has required keys
+                required_keys = ["comment_id", "roberta_sentiment", "roberta_confidence"]
+                if not isinstance(response, dict) or not all(key in response for key in required_keys):
+                    logger.error(f"Invalid API response format. Response: {response}")
+                    raise ValueError("Invalid API response format")
+                
+                return response
+
+            except Exception as e:
+                # Log any error (network, server, or otherwise) and retry
+                logger.error(f"Batch API request failed: {str(e)}")
+                raise  # Re-raise the exception to trigger a retry
+
+        # Function to analyze the sentiment of all comments in batches via API requests
         def get_sentiment(df, batch_size=500):  
             # Initialize a dictionary to store sentiment analysis results
             result = {
@@ -292,10 +317,7 @@ def etl_pipeline():
                 
                 try:
                     # Send batch to API and get results
-                    batch_result = client.predict(
-                        batch_data,
-                        api_name="/predict"
-                    )
+                    batch_result = batch_api_request(batch_data)
                 
                     # Append the results of the current batch to the corresponding lists in the result dictionary
                     result["comment_id"].extend(batch_result["comment_id"])
@@ -306,8 +328,8 @@ def etl_pipeline():
                     logger.info(f"Batch {batch_number} processed successfully")
                 
                 except Exception as e:
-                    # Log error in case of failure
-                    logger.error(f"Error processing batch {batch_number}: {str(e)}")
+                    # Log error in case of failure and skip this batch
+                    logger.error(f"Error processing batch {batch_number} after all retries. Skipping this batch. Error: {str(e)}")
 
             # Log completion of all batches
             logger.info("Sentiment analysis completed")
