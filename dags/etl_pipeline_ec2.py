@@ -223,7 +223,7 @@ def etl_pipeline():
         comments_df.to_csv("/opt/airflow/data/comments_df_extracted.csv", index=False, quoting=csv.QUOTE_NONNUMERIC)  
     
     # Transform data
-    @task 
+    @task(execution_timeout=timedelta(minutes=15))  # set task timeout to 15 min 
     def transform():
         # Convert video duration
         # Function to convert the YouTube video duration from ISO 8601 format (str) to seconds (int)
