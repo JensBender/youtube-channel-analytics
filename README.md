@@ -124,7 +124,7 @@ The report enables users to navigate interactively through metrics and time peri
 
 <!-- GETTING STARTED -->
 ## 🚀 Getting Started
-Follow these instructions to set up and run the project on an **AWS EC2** instance. This guide will cover everything from launching your EC2 instance to connecting Power BI to your MySQL database on AWS RDS.
+Follow these instructions to set up and run the project on **AWS**. This guide will cover everything from launching your EC2 instance to connecting Power BI to your MySQL database on AWS RDS.
 
 ### Prerequisites
 Before you begin, ensure you have the following in place:
