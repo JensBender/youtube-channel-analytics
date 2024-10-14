@@ -37,6 +37,9 @@
     <a href="#-data-visualization">Data Visualization</a>
   </li>
   <li>
+    <a href="#️-getting-started">Getting Started</a>
+  </li>
+  <li>
     <a href="#️-license">License</a>
   </li>
   <li>
@@ -115,6 +118,90 @@ Created an interactive Power BI report offering in-depth insights into channel p
 <img src="images/powerbi_top5.PNG" alt="Power BI Top 5 Videos"  style="margin-bottom: 20px;">  
 
 The report enables users to navigate interactively through metrics and time periods to discover trends in channel performance and audience engagement.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🚀 Getting Started
+
+Follow these instructions to set up and run the project on an **AWS EC2** instance. This guide will cover everything from launching your EC2 instance to connecting Power BI to your MySQL database on AWS RDS.
+
+### Prerequisites
+Before you begin, ensure you have the following in place:
+
+- **AWS EC2 instance**: Amazon Linux 2 (t2.micro)
+- **AWS RDS instance**: MySQL database
+- **PuTTY SSH Client**: To connect to EC2 and set up an SSH tunnel
+- **Docker**: Installed on the EC2 instance
+- **Apache Airflow**: Installed on the EC2 instance
+- **Power BI Desktop**: Installed on your local machine 
+
+---
+
+### Set Up Airflow with Docker on AWS 
+
+#### 1. **Launch EC2 Instance**  
+- Go to the [AWS Management Console](https://aws.amazon.com/console/) and create a new EC2 instance.
+  - Select **Amazon Linux 2** as the OS.
+  - Choose the **t2.micro** instance type for free-tier eligibility.
+- Configure **Security Groups** to allow the following:  
+  - **SSH (port 22)** from your local machine’s IP address to connect via SSH.
+  - **Airflow Webserver (port 8080)** from your local IP address to access the Airflow Webserver UI.
+  - **MySQL (port 3306)** to connect from the EC2 instance to the RDS instance.
+  - **Outbound HTTP (port 80)** and **HTTPS (port 443)** to all IP addresses to download packages and updates.
+
+#### 2. **Set Up MySQL on AWS RDS**
+- Go to the [AWS RDS Console](https://aws.amazon.com/rds/) and create a MySQL instance.
+  - Choose the **Free Tier** option (`db.t2.micro`).
+  - Ensure **public accessibility** is set to **No** for added security (you’ll use the SSH tunnel for access).
+  - Name your database `youtube_analytics`.
+  - Save the **RDS endpoint**, **username**, and **password** for later use.
+- Configure RDS **Security Groups**:  
+  - Ensure your RDS security group allows inbound connections on **port 3306** from the EC2 instance's security group.
+
+#### 3. **Connect to EC2 via SSH**
+**Using PuTTY** (or your preferred SSH client):  
+- **Host Name**: `<your-ec2-public-ip-address>`  
+- **Port**: `22`  
+- **Authentication**: Use your `.ppk` private key file for the EC2 instance.
+
+**Set Up SSH Tunnel** for RDS Access:  
+- In PuTTY, go to **Connection > SSH > Tunnels**.
+  - **Source Port**: `3306` (MySQL)
+  - **Destination**: `<your-rds-endpoint>:3306`
+  - Click **Add**, then **Open** to establish the connection.
+- This will forward traffic from your local machine (via port 3306) to the RDS instance through the EC2 instance.
+
+#### 4. **Install Docker and Apache Airflow**
+**Install Docker**:  Once connected to your EC2 instance, run the following commands to install Docker.
+```bash
+sudo yum update -y
+sudo amazon-linux-extras install docker
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+```
+
+**Install and Start Apache Airflow**: Execute the provided `airflow_start_ec2.sh` script to install and start Airflow.
+```bash
+./airflow_start_ec2.sh
+```
+
+---
+
+### Set Up Power BI 
+Once the SSH tunnel is up, you can connect Power BI to your RDS MySQL database.
+- Open **Power BI Desktop**: Go to the **Home** tab and select **Get Data** > **MySQL database**.
+- Configure the MySQL Connection:  
+  - **Server**: `localhost:3308` (this points to your local machine, connected to the RDS via SSH tunnel on port 3308).
+  - **Database**: `youtube_analytics`.
+  - **Username**: Your RDS MySQL username.
+  - **Password**: Your RDS MySQL password.
+
+---
+
+### Additional Tips
+- **Airflow Web UI**: After starting Airflow on EC2, you can access the web UI by visiting `http://<your-ec2-public-ip>:8080` in your browser (ensure port 8080 is open in your security group).
+- **RDS Connection**: You can use the same SSH tunnel setup to connect to your RDS instance using any MySQL client (e.g., MySQL Workbench) on `localhost:3308`.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
