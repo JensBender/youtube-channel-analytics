@@ -142,35 +142,35 @@ For this project, you will need the following tools and services:
 
 #### 1. **Launch EC2 Instance**  
 - Go to the [AWS Management Console](https://aws.amazon.com/console/) and create a new EC2 instance.
-  - Select **Amazon Linux 2** as the OS.
+  - Select **Amazon Linux 2** as the operating system.
   - Choose the **t2.micro** instance type for free-tier eligibility.
-- Configure **Security Groups** to allow the following:  
+- Configure **Security Groups**:  
   - **SSH (port 22)** from your local machine’s IP address to connect via SSH.
-  - **Airflow Webserver (port 8080)** from your local IP address to access the Airflow Webserver UI.
-  - **MySQL (port 3306)** to connect from the EC2 instance to the RDS instance.
-  - **Outbound HTTP (port 80)** and **HTTPS (port 443)** to all IP addresses to download packages and updates.
+  - **Airflow Webserver (port 8080)** from your your local machine’s IP address to access the Airflow Webserver UI.
+  - **MySQL (port 3306)** from the EC2 instance’s security group for database connections to the RDS instance.
+  - **HTTP (port 80)** and **HTTPS (port 443)** to all IP addresses to download packages.
 
 #### 2. **Set Up MySQL on AWS RDS**
 - Go to the [AWS RDS Console](https://aws.amazon.com/rds/) and create a MySQL instance.
   - Choose the **Free Tier** option (`db.t2.micro`).
-  - Ensure **public accessibility** is set to **No** for added security (you’ll use the SSH tunnel for access).
-  - Name your database `youtube_analytics`.
-  - Save the **RDS endpoint**, **username**, and **password** for later use.
+  - Set **Public Accessibility** to **No** for added security (you’ll access it via SSH tunnel).
+  - Create a new database named `youtube_analytics`.
+  - Save the **RDS endpoint**, **username**, and **password** in a `.env` file.
 - Configure RDS **Security Groups**:  
-  - Ensure your RDS security group allows inbound connections on **port 3306** from the EC2 instance's security group.
+  - Ensure the security group allows inbound connections on **port 3306** from the EC2 instance's security group.
 
 #### 3. **Connect to EC2 via SSH**
 **Using PuTTY** (or your preferred SSH client):  
 - **Host Name**: `<your-ec2-public-ip-address>`  
 - **Port**: `22`  
-- **Authentication**: Use your `.ppk` private key file for the EC2 instance.
+- **Authentication**: Use your `.ppk` private key file.
 
-**Set Up SSH Tunnel** for RDS Access:  
+**Set Up an SSH Tunnel** for RDS Access:  
 - In PuTTY, go to **Connection > SSH > Tunnels**.
-  - **Source Port**: `3306` (MySQL)
-  - **Destination**: `<your-rds-endpoint>:3306`
-  - Click **Add**, then **Open** to establish the connection.
-- This will forward traffic from your local machine (via port 3306) to the RDS instance through the EC2 instance.
+  - **Source Port**: `3308` (this is port on your local machine that will forward traffic to the RDS instance).
+  - **Destination**: `<your-rds-endpoint>:3306` (this is the port on the RDS instance for MySQL).
+  - Click **Add**, then **Open** to establish the SSH connection.
+- This will forward traffic from **port 3308** on your local machine to the **RDS instance's MySQL port (3306)** via the EC2 instance.
 
 #### 4. **Install Docker and Apache Airflow**
 **Install Docker**:  Once connected to your EC2 instance, run the following commands to install Docker.
@@ -181,7 +181,7 @@ sudo service docker start
 sudo usermod -a -G docker ec2-user
 ```
 
-**Install and Start Apache Airflow**: Execute the provided `airflow_start_ec2.sh` script to install and start Airflow.
+**Install and Start Apache Airflow**: Run the provided bash script `airflow_start_ec2.sh` to install and start Airflow.
 ```bash
 ./airflow_start_ec2.sh
 ```
