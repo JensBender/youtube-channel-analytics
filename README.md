@@ -124,13 +124,13 @@ The report enables users to navigate interactively through metrics and time peri
 
 <!-- GETTING STARTED -->
 ## 🚀 Getting Started
-Follow these instructions to set up and run the project on **AWS**. This guide will cover everything from launching your EC2 instance to connecting Power BI to your MySQL database on AWS RDS.
+Follow these instructions to set up and run the project on **AWS**. This guide will cover everything from launching your EC2 instance to connecting **Power BI** to a **MySQL database** on **AWS RDS**.
 
 ### Prerequisites
-Before you begin, ensure you have the following in place:
+For this project, you will need the following tools and services:
 
-- **AWS EC2 instance**: Amazon Linux 2 (t2.micro)
-- **AWS RDS instance**: MySQL database
+- **AWS EC2 instance**: Running Amazon Linux 2 (t2.micro for free tier)
+- **AWS RDS instance**: Hosting a MySQL database
 - **PuTTY SSH Client**: To connect to EC2 and set up an SSH tunnel
 - **Docker**: Installed on the EC2 instance
 - **Apache Airflow**: Installed on the EC2 instance
