@@ -189,7 +189,7 @@ sudo usermod -a -G docker ec2-user
 ---
 
 ### Set Up Power BI 
-Once the SSH tunnel is up, you can connect Power BI to your RDS MySQL database.
+Once the SSH tunnel is active, you can connect Power BI to your MySQL database on AWS RDS.
 - Open **Power BI Desktop**: Go to the **Home** tab and select **Get Data** > **MySQL database**.
 - Configure the MySQL Connection:  
   - **Server**: `localhost:3308` (this points to your local machine, connected to the RDS via SSH tunnel on port 3308).
@@ -200,8 +200,8 @@ Once the SSH tunnel is up, you can connect Power BI to your RDS MySQL database.
 ---
 
 ### Additional Tips
-- **Airflow Web UI**: After starting Airflow on EC2, you can access the web UI by visiting `http://<your-ec2-public-ip>:8080` in your browser (ensure port 8080 is open in your security group).
-- **RDS Connection**: You can use the same SSH tunnel setup to connect to your RDS instance using any MySQL client (e.g., MySQL Workbench) on `localhost:3308`.
+- **Airflow Web UI**: After starting Airflow on your EC2 instance, you can access the web UI by visiting `http://<your-ec2-public-ip-address>:8080` in a browser (ensure port 8080 is open in the security group).
+- **Connecting to RDS**: You can use the same SSH tunnel setup to connect to RDS with any MySQL client (e.g., MySQL Workbench) by using `localhost:3308` as the connection address.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
