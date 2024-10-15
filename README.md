@@ -159,18 +159,16 @@ For this project, you will need the following tools and services:
 - Configure RDS **Security Groups**:  
   - Ensure the security group allows inbound connections on **port 3306** from the EC2 instance's security group.
 
-#### 3. **Connect to EC2 via SSH**
+#### 3. **Connect to EC2 and Set Up SSH Tunnel**
 **Using PuTTY** (or your preferred SSH client):  
 - **Host Name**: `<your-ec2-public-ip-address>`  
 - **Port**: `22`  
 - **Authentication**: Use your `.ppk` private key file.
-
-**Set Up an SSH Tunnel** for RDS Access:  
-- In PuTTY, go to **Connection > SSH > Tunnels**.
-  - **Source Port**: `3308` (this is port on your local machine that will forward traffic to the RDS instance).
-  - **Destination**: `<your-rds-endpoint>:3306` (this is the port on the RDS instance for MySQL).
+- To set up SSH tunnel for RDS access, go to **Connection > SSH > Tunnels**.
+  - **Source Port**: `3308` (port on your local machine).
+  - **Destination**: `<your-rds-endpoint>:3306` (port on the RDS instance for MySQL).
   - Click **Add**, then **Open** to establish the SSH connection.
-- This will forward traffic from **port 3308** on your local machine to the **RDS instance's MySQL port (3306)** via the EC2 instance.
+  - This will forward traffic from **port 3308** on your local machine to the **RDS instance's MySQL port (3306)** via the EC2 instance.
 
 #### 4. **Install Docker and Apache Airflow**
 **Install Docker**:  Once connected to your EC2 instance, run the following commands to install Docker.
