@@ -30,6 +30,7 @@ x-airflow-common: &airflow-common
     AWS_MYSQL_ENDPOINT: ${aws_mysql_endpoint}
     AWS_MYSQL_USER: ${aws_mysql_user}
     AWS_MYSQL_PASSWORD: ${aws_mysql_password}
+    HUGGINGFACE_SPACE_NAME: ${huggingface_space_name}
     HUGGINGFACE_ACCESS_TOKEN: ${huggingface_access_token}
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
