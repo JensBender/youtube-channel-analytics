@@ -139,26 +139,28 @@ For this project, you will need the following tools and services:
 
 ---
 
-### Set Up Airflow with Docker on AWS 
+### Set Up AWS 
 
-#### 1. **Launch EC2 Instance**  
+#### Launch EC2 Instance 
 - Go to the [AWS Management Console](https://aws.amazon.com/console/) and create a new EC2 instance.
   - Select **Amazon Linux 2** as the operating system.
   - Choose the **t2.micro** instance type for free-tier eligibility.
-- Configure **Security Groups**:  
+- Configure EC2 **Security Groups**:  
   - **SSH (port 22)** from your local machine’s IP address to connect via SSH.
   - **Airflow Webserver (port 8080)** from your your local machine’s IP address to access the Airflow Webserver UI.
   - **MySQL (port 3306)** from the EC2 instance’s security group for database connections to the RDS instance.
   - **HTTP (port 80)** and **HTTPS (port 443)** to all IP addresses to download packages.
 
-#### 2. **Set Up MySQL on AWS RDS**
+#### Launch RDS Instance for MySQL
 - Go to the [AWS RDS Console](https://aws.amazon.com/rds/) and create a MySQL instance.
   - Choose the **Free Tier** option (`db.t2.micro`).
   - Set **Public Accessibility** to **No** for added security (you’ll access it via SSH tunnel).
   - Create a new database named `youtube_analytics`.
   - Save the **RDS endpoint**, **username**, and **password** in a `.env` file.
-- Configure RDS **Security Groups**:  
+- Configure RDS **Security Group**:  
   - Ensure the security group allows inbound connections on **port 3306** from the EC2 instance's security group.
+
+---
 
 #### 3. **Connect to EC2 and Set Up SSH Tunnel**
 **Using PuTTY** on Windows or your preferred SSH client:  
