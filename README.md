@@ -200,6 +200,23 @@ sudo usermod -a -G docker ec2-user
 
 ---
 
+### Set Up Hugging Face
+To set up the sentiment analysis model on Hugging Face Spaces:
+- Log in to your Hugging Face account or create one if you haven't already.
+- Create a new Space:
+  - Choose Space hardware: "CPU basic 2 vCPU 16 GB FREE" for free-tier eligibility.
+  - Select "Private" Space.
+- Upload the following files from this repo's `huggingface_space` subdirectory to your Hugging Face Space:
+  - `app_roberta.py`: Contains the code for deploying the RoBERTa sentiment analysis model as a Gradio web application with API endpoint.
+  - `requirements.txt`: Lists the Python dependencies needed for model deployment on Hugging Face Spaces.
+- After deployment, note your Space's name (e.g., "YourUserName/roberta-sentiment-analysis-api").
+- Create an access token:
+  - Go to your Hugging Face account settings. 
+  - Navigate to **Settings > Access Tokens**.
+  - Generate a new token and store it.
+
+---
+
 ### Set Up Power BI 
 Once the SSH tunnel is active, you can connect Power BI to your MySQL database on AWS RDS.
 - Open **Power BI Desktop**: Go to the **Home** tab and select **Get Data** > **MySQL database**.
