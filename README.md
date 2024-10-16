@@ -129,12 +129,13 @@ Follow these instructions to set up and run the project on **AWS**. This guide w
 ### Prerequisites
 For this project, you will need the following tools and services:
 
-- **AWS EC2 instance**: Running Amazon Linux 2 (t2.micro for free tier)
-- **AWS RDS instance**: Hosting a MySQL database
-- **PuTTY SSH Client**: To connect to EC2 and set up an SSH tunnel
-- **Docker**: Installed on the EC2 instance
-- **Apache Airflow**: Installed on the EC2 instance
-- **Power BI Desktop**: Installed on your local machine 
+- **AWS Account**:
+  - **AWS EC2 instance**: Running Amazon Linux 2 (t2.micro for free tier).
+  - **AWS RDS instance**: To host a MySQL database.
+- **SSH Client**: To connect your local machine to EC2 and set up an SSH tunnel.
+- **Docker**: Installed on the EC2 instance to containerize the ETL pipeline.
+- **Apache Airflow**: Running inside Docker containers on the EC2 instance to orchestrate the ETL pipeline.
+- **Power BI Desktop**: Installed on your local machine for connecting to the AWS MySQL database and visualizing data.
 
 ---
 
@@ -160,7 +161,7 @@ For this project, you will need the following tools and services:
   - Ensure the security group allows inbound connections on **port 3306** from the EC2 instance's security group.
 
 #### 3. **Connect to EC2 and Set Up SSH Tunnel**
-**Using PuTTY** (or your preferred SSH client):  
+**Using PuTTY** on Windows or your preferred SSH client:  
 - **Host Name**: `<your-ec2-public-ip-address>`  
 - **Port**: `22`  
 - **Authentication**: Use your `.ppk` private key file.
