@@ -39,12 +39,12 @@
   <li>
     <a href="#-getting-started">Getting Started</a>
     <ul>
-      <li><a href="#️prerequisites">Prerequisites</a></li> 
-      <li><a href="#️set-up-aws">Set Up AWS</a></li>
-      <li><a href="#️connect-to-ec2-and-set-up-ssh-tunnel">Connect to EC2 and Set Up SSH Tunnel</a></li> 
-      <li><a href="#️set-up-docker-and-apache-airflow-on-ec2">Set Up Docker and Apache Airflow on EC2</a></li> 
-      <li><a href="#️set-up-power-bi">Set Up Power BI</a></li> 
-      <li><a href="#️additional-tips">Additional Tips</a></li> 
+      <li><a href="#prerequisites">Prerequisites</a></li> 
+      <li><a href="#set-up-aws">Set Up AWS</a></li>
+      <li><a href="#connect-to-ec2-and-set-up-ssh-tunnel">Connect to EC2 and Set Up SSH Tunnel</a></li> 
+      <li><a href="#set-up-docker-and-apache-airflow-on-ec2">Set Up Docker and Apache Airflow on EC2</a></li> 
+      <li><a href="#set-up-power-bi">Set Up Power BI</a></li> 
+      <li><a href="#additional-tips">Additional Tips</a></li> 
     </ul>
   </li>
   <li>
@@ -147,7 +147,7 @@ For this project, you will need the following tools and services:
 
 ---
 
-### Set Up AWS 
+### Set Up AWS
 
 #### Launch EC2 Instance 
 - Go to the [AWS Management Console](https://aws.amazon.com/console/) and create a new EC2 instance.
