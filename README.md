@@ -38,6 +38,14 @@
   </li>
   <li>
     <a href="#-getting-started">Getting Started</a>
+    <ul>
+      <li><a href="#️prerequisites">Prerequisites</a></li> 
+      <li><a href="#️set-up-aws">Set Up AWS</a></li>
+      <li><a href="#️connect-to-ec2-and-set-up-ssh-tunnel">Connect to EC2 and Set Up SSH Tunnel</a></li> 
+      <li><a href="#️set-up-docker-and-apache-airflow-on-ec2">Set Up Docker and Apache Airflow on EC2</a></li> 
+      <li><a href="#️set-up-power-bi">Set Up Power BI</a></li> 
+      <li><a href="#️additional-tips">Additional Tips</a></li> 
+    </ul>
   </li>
   <li>
     <a href="#️-license">License</a>
