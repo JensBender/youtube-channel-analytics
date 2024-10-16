@@ -145,7 +145,7 @@ For this project, you will need the following tools and services:
 - **Docker**: Installed on the EC2 instance to containerize the ETL pipeline.
 - **Apache Airflow**: Running inside Docker containers on the EC2 instance to orchestrate the ETL pipeline.
 - **Hugging Face Account**: To host the sentiment analysis model on Hugging Face Spaces.
-- **Power BI Desktop**: Installed on your local machine for connecting to the AWS MySQL database and visualizing data.
+- **Power BI Desktop**: Installed on your local machine and connected to the AWS MySQL database.
 
 ---
 
@@ -173,7 +173,7 @@ For this project, you will need the following tools and services:
 ---
 
 ### Connect to EC2 and Set Up SSH Tunnel
-**Using PuTTY** on Windows or your preferred SSH client:  
+**Using PuTTY** on Windows (or your preferred SSH client):  
 - **Host Name**: `<your-ec2-public-ip-address>`  
 - **Port**: `22`  
 - **Authentication**: Use your `.ppk` private key file.
