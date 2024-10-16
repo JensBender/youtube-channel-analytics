@@ -162,7 +162,7 @@ For this project, you will need the following tools and services:
 
 ---
 
-#### 3. **Connect to EC2 and Set Up SSH Tunnel**
+### Connect to EC2 and Set Up SSH Tunnel
 **Using PuTTY** on Windows or your preferred SSH client:  
 - **Host Name**: `<your-ec2-public-ip-address>`  
 - **Port**: `22`  
@@ -173,7 +173,9 @@ For this project, you will need the following tools and services:
   - Click **Add**, then **Open** to establish the SSH connection.
   - This will forward traffic from **port 3308** on your local machine to the **RDS instance's MySQL port (3306)** via the EC2 instance.
 
-#### 4. **Install Docker and Apache Airflow**
+---
+
+### Set Up Docker and Apache Airflow on EC2
 **Install Docker**:  Once connected to your EC2 instance, run the following commands to install Docker.
 ```bash
 sudo yum update -y
@@ -182,7 +184,7 @@ sudo service docker start
 sudo usermod -a -G docker ec2-user
 ```
 
-**Install and Start Apache Airflow**: Run the provided bash script `airflow_start_ec2.sh` to install and start Airflow.
+**Start Apache Airflow**: Run the provided bash script `airflow_start_ec2.sh` to start Airflow inside Docker containers.
 ```bash
 ./airflow_start_ec2.sh
 ```
