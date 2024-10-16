@@ -20,7 +20,8 @@ aws_mysql_endpoint = os.environ.get("AWS_MYSQL_ENDPOINT")
 aws_mysql_user = os.environ.get("AWS_MYSQL_USER") 
 aws_mysql_password = os.environ.get("AWS_MYSQL_PASSWORD")
 
-# Get Hugging Face access token from docker environment
+# Get Hugging Face Space name and access token from docker environment
+huggingface_space_name = os.environ.get("HUGGINGFACE_SPACE_NAME")
 huggingface_access_token = os.environ.get("HUGGINGFACE_ACCESS_TOKEN")
 
 # Define DAG arguments
@@ -260,7 +261,7 @@ def etl_pipeline():
         
         # Initialize Gradio client to connect to my personal RoBERTa Sentiment Analysis API on Hugging Face Spaces
         # Note: Ensure the Gradio web application with RoBERTa Sentiment Analysis API is running on Hugging Face Spaces
-        client = Client("JensBender/roberta-sentiment-analysis-api", hf_token=huggingface_access_token)  
+        client = Client(huggingface_space_name, hf_token=huggingface_access_token)  
 
         # Function to make a single API request to analyze the sentiment of a single batch of 500 comments with retries
         @retry(
