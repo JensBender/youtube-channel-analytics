@@ -42,8 +42,10 @@
       <li><a href="#prerequisites">Prerequisites</a></li> 
       <li><a href="#set-up-aws">Set Up AWS</a></li>
       <li><a href="#connect-to-ec2-and-set-up-ssh-tunnel">Connect to EC2 and Set Up SSH Tunnel</a></li> 
-      <li><a href="#set-up-docker-and-apache-airflow-on-ec2">Set Up Docker and Apache Airflow on EC2</a></li> 
+      <li><a href="#set-up-youtube-api">Set Up YouTube API</a></li> 
       <li><a href="#set-up-hugging-face">Set Up Hugging Face</a></li> 
+      <li><a href="#store-sensitive-information-in-a-env-file">Store Sensitive Information in a `.env` File</a></li> 
+      <li><a href="#set-up-docker-and-apache-airflow-on-ec2">Set Up Docker and Apache Airflow on EC2</a></li> 
       <li><a href="#set-up-power-bi">Set Up Power BI</a></li> 
       <li><a href="#additional-tips">Additional Tips</a></li> 
     </ul>
@@ -140,6 +142,7 @@ For this project, you will need the following tools and services:
 - **AWS Account**:
   - **EC2 instance**: Running Amazon Linux 2 (t2.micro for free tier).
   - **RDS instance**: To host a MySQL database.
+- **Google Account**: To create a YouTube Data API key in the Google Cloud Console.
 - **SSH Client**: To connect your local machine to EC2 and set up an SSH tunnel.
 - **Docker**: Installed on the EC2 instance to containerize the ETL pipeline.
 - **Apache Airflow**: Running inside Docker containers on EC2 to orchestrate the ETL pipeline.
@@ -194,8 +197,8 @@ For this project, you will need the following tools and services:
 - To improve security, restrict the usage of your API key to specific IP addresses:
   - Under **Edit API key**, go to **Set an application restriction** and select **IP addresses**.
   - Add the following IP addresses:
-    - Your local machine's public IP address
-    - Your AWS EC2 instance's public IP address
+    - Your local machine's public IP address.
+    - Your AWS EC2 instance's public IP address.
 - To further improve security, restrict the API key to only allow access to the YouTube Data API v3:
   - Under **Edit API key**, go to **API restrictions** and select **Restrict key**.
   - From the dropdown menu, choose **YouTube Data API v3**.
