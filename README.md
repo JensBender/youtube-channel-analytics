@@ -140,9 +140,9 @@ The report enables users to navigate interactively through metrics and time peri
 For this project, you will need the following tools and services:
 
 - **AWS Account**:
-  - **EC2 instance**: Running Amazon Linux 2 (t2.micro for free tier).
+  - **EC2 instance**: Running Amazon Linux 2 (t2.micro for free tier) to host the ETL pipeline.
   - **RDS instance**: To host a MySQL database.
-- **Google Account**: To create a YouTube Data API key in the Google Cloud Console.
+- **Google Account**: To create a YouTube API key for data extraction.
 - **SSH Client**: To connect your local machine to EC2 and set up an SSH tunnel.
 - **Docker**: Installed on the EC2 instance to containerize the ETL pipeline.
 - **Apache Airflow**: Running inside Docker containers on EC2 to orchestrate the ETL pipeline.
