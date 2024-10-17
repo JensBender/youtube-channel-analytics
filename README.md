@@ -198,11 +198,12 @@ For this project, you will need the following tools and services:
 - Create a Hugging Face access token:
   - Go to your Hugging Face account settings. 
   - Navigate to **Settings > Access Tokens** and generate a new token.
+- Save the Hugging Face access token and your Space's name in a `.env` file as explained in the next section.
 
 ---
 
 ### Store Sensitive Information in a `.env` File
-- Create the `.env` file on your local machine with the following content:
+- Create a `.env` file on your local machine with the following content:
   ```
   aws_mysql_endpoint = <your-rds-endpoint>
   aws_mysql_user = <your-rds-username>
