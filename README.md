@@ -227,10 +227,12 @@ For this project, you will need the following tools and services:
   aws_mysql_user = <your-rds-username>
   aws_mysql_password = <your-rds-password>
 
+  youtube_api_key = <your-youtube-api-key>
+
   huggingface_space_name = <your-hf-space-name>
   huggingface_access_token = <your-hf-access-token>
   ```
-- Replace the placeholders with your actual values, and ensure both AWS RDS and Hugging Face credentials are stored here.
+- Replace the placeholders with your actual values, and ensure that AWS RDS, YouTube API and Hugging Face credentials are stored here.
 - Upload `.env` file from your local machine to EC2 using an SCP client (or similar tool):
   ```
   scp -i <your-key.pem> .env ec2-user@<your-ec2-public-ip-address>:/home/ec2-user/
