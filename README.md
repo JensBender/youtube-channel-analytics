@@ -221,7 +221,7 @@ sudo usermod -a -G docker ec2-user
 Once the SSH tunnel is active, you can connect Power BI to your MySQL database on AWS RDS.
 - Open **Power BI Desktop**: Go to the **Home** tab and select **Get Data** > **MySQL database**.
 - Configure the MySQL Connection:  
-  - **Server**: `localhost:3308` (this points to your local machine, connected to the RDS via SSH tunnel on port 3308).
+  - **Server**: `localhost:3308` (this points to port 3308 on your local machine, which forwards traffic to RDS via SSH tunnel).
   - **Database**: `youtube_analytics`.
   - **Username**: Your RDS MySQL username.
   - **Password**: Your RDS MySQL password.
