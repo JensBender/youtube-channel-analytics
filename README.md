@@ -133,17 +133,16 @@ The report enables users to navigate interactively through metrics and time peri
 
 <!-- GETTING STARTED -->
 ## 🚀 Getting Started
-Follow these instructions to set up and run the project.
 
 ### Prerequisites
 For this project, you will need the following tools and services:
 
 - **AWS Account**:
-  - **AWS EC2 instance**: Running Amazon Linux 2 (t2.micro for free tier).
-  - **AWS RDS instance**: To host a MySQL database.
+  - **EC2 instance**: Running Amazon Linux 2 (t2.micro for free tier).
+  - **RDS instance**: To host a MySQL database.
 - **SSH Client**: To connect your local machine to EC2 and set up an SSH tunnel.
 - **Docker**: Installed on the EC2 instance to containerize the ETL pipeline.
-- **Apache Airflow**: Running inside Docker containers on the EC2 instance to orchestrate the ETL pipeline.
+- **Apache Airflow**: Running inside Docker containers on EC2 to orchestrate the ETL pipeline.
 - **Hugging Face Account**: To host the sentiment analysis model on Hugging Face Spaces.
 - **Power BI Desktop**: Installed on your local machine and connected to the AWS MySQL database.
 
