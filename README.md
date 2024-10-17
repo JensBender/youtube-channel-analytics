@@ -160,14 +160,14 @@ For this project, you will need the following tools and services:
   - **MySQL (port 3306)** from the EC2 instance’s security group for database connections to the RDS instance.
   - **HTTP (port 80)** and **HTTPS (port 443)** to all IP addresses to download packages.
 
-#### Launch RDS Instance for MySQL
+#### Launch RDS MySQL Instance 
 - Go to the [AWS RDS Console](https://aws.amazon.com/rds/) and create a MySQL instance.
   - Choose the **Free Tier** option (`db.t2.micro`).
   - Set **Public Accessibility** to **No** for added security (you’ll access it via SSH tunnel).
   - Create a new database named `youtube_analytics`.
   - Save the **RDS endpoint**, **username**, and **password** in a `.env` file.
 - Configure RDS **Security Group**:  
-  - Ensure the security group allows inbound connections on **port 3306** from the EC2 instance's security group.
+  - Allow inbound connections on **port 3306** from the EC2 instance's security group.
 
 ---
 
