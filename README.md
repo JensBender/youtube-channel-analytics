@@ -172,11 +172,12 @@ For this project, you will need the following tools and services:
 ---
 
 ### Connect to EC2 and Set Up SSH Tunnel
-**Using PuTTY** on Windows (or your preferred SSH client):  
-- **Host Name**: `<your-ec2-public-ip-address>`  
-- **Port**: `22`  
-- **Authentication**: Use your `.ppk` private key file.
-- To set up SSH tunnel for RDS access, go to **Connection > SSH > Tunnels**.
+- **SSH Connection**: Use PuTTY on Windows (or your preferred SSH client) to connect:  
+  - **Host Name**: `<your-ec2-public-ip-address>`  
+  - **Port**: `22`  
+  - **Authentication**: Use your `.ppk` private key file.
+- **Set up SSH tunnel** for RDS access:
+  - In PuTTY, go to **Connection > SSH > Tunnels**.
   - **Source Port**: `3308` (port on your local machine).
   - **Destination**: `<your-rds-endpoint>:3306` (port on the RDS instance for MySQL).
   - Click **Add**, then **Open** to establish the SSH connection.
