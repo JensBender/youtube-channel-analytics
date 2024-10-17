@@ -165,7 +165,7 @@ For this project, you will need the following tools and services:
   - Choose the **Free Tier** option (`db.t2.micro`).
   - Set **Public Accessibility** to **No** for added security (you’ll access it via SSH tunnel).
   - Create a new database named `youtube_analytics`.
-  - Save the **RDS endpoint**, **username**, and **password** in a `.env` file.
+  - Save the **RDS endpoint**, **username**, and **password**. You will store these in a `.env` file as explained later.
 - Configure RDS **Security Group**:  
   - Allow inbound connections on **port 3306** from the EC2 instance's security group.
 
@@ -182,6 +182,25 @@ For this project, you will need the following tools and services:
   - **Destination**: `<your-rds-endpoint>:3306` (port on the RDS instance for MySQL).
   - Click **Add**, then **Open** to establish the SSH connection.
   - This will forward traffic from **port 3308** on your local machine to the **RDS instance's MySQL port (3306)** via the EC2 instance.
+
+---
+
+### Store Sensitive Information in a `.env` File
+- Create the `.env` file on your local machine with the following content:
+  ```
+  aws_mysql_endpoint = <your-rds-endpoint>
+  aws_mysql_user = <your-rds-username>
+  aws_mysql_password = <your-rds-password>
+
+  huggingface_space_name = <your-hf-space-name>
+  huggingface_access_token = <your-hf-access-token>
+  ```
+- Replace the placeholders with your actual values, and ensure both AWS RDS and Hugging Face credentials are stored here.
+- Upload `.env` file from your local machine to EC2 using an SCP client (or similar tool):
+  ```
+  scp -i <your-key.pem> .env ec2-user@<your-ec2-public-ip-address>:/home/ec2-user/
+  ```
+- The .env file will be used to load environment variables into Docker, keeping sensitive information safe and accessible to your Airflow DAG code.
 
 ---
 
