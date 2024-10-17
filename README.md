@@ -185,6 +185,24 @@ For this project, you will need the following tools and services:
 
 ---
 
+### Set Up YouTube API
+- Create a YouTube API Key
+  - Go to the [Google Cloud Console](https://console.cloud.google.com/).
+  - Navigate to **APIs & Services > Credentials**.
+  - Click **Create Credentials** and select **API Key**.
+  - Save the **API Key**. You will store it in a `.env` file as explained later.
+- To improve security, restrict the usage of your API key to specific IP addresses:
+  - Under **Edit API key**, go to **Set an application restriction** and select **IP addresses**.
+  - Add the following IP addresses:
+    - Your local machine's public IP address
+    - Your AWS EC2 instance's public IP address
+- To further improve security, restrict the API key to only allow access to the YouTube Data API v3:
+  - Under **Edit API key**, go to **API restrictions** and select **Restrict key**.
+  - From the dropdown menu, choose **YouTube Data API v3**.
+  - Click **Save** to apply the changes.
+
+---
+
 ### Set Up Hugging Face
 - Set up the sentiment analysis model on Hugging Face Spaces:
   - Log in to your Hugging Face account or create one if you haven't already.
