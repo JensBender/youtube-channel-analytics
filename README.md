@@ -149,6 +149,8 @@ Ensure you have the following tools and services:
 - **Hugging Face Account**: To host the sentiment analysis model on Hugging Face Spaces.
 - **Power BI Desktop**: Installed on your local machine and connected to the AWS MySQL database to visualize data.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ---
 
 ### Set Up AWS
@@ -172,6 +174,8 @@ Ensure you have the following tools and services:
 - Configure RDS **Security Group**:  
   - Allow inbound connections on **port 3306** from the EC2 instance's security group.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ---
 
 ### Connect to EC2 and Set Up SSH Tunnel
@@ -185,6 +189,8 @@ Ensure you have the following tools and services:
   - **Destination**: `<your-rds-endpoint>:3306` (port on the RDS instance for MySQL).
   - Click **Add**, then **Open** to establish the SSH connection.
   - This will forward traffic from **port 3308** on your local machine to the **RDS instance's MySQL port (3306)** via the EC2 instance.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
@@ -204,6 +210,8 @@ Ensure you have the following tools and services:
   - From the dropdown menu, choose **YouTube Data API v3**.
   - Click **Save** to apply the changes.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ---
 
 ### Set Up Hugging Face
@@ -218,6 +226,8 @@ Ensure you have the following tools and services:
 - Create a Hugging Face access token:
   - Go to your Hugging Face account settings. 
   - Navigate to **Settings > Access Tokens**, generate a new token and save it for later use.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
@@ -240,6 +250,8 @@ Ensure you have the following tools and services:
   ```
 - The `.env` file will be used to load environment variables into Docker, keeping sensitive information safe and accessible to your Airflow DAG code.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ---
 
 ### Set Up Docker and Apache Airflow on EC2
@@ -256,6 +268,8 @@ sudo usermod -a -G docker ec2-user
 ./airflow_start_ec2.sh
 ```
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ---
 
 ### Set Up Power BI 
@@ -266,6 +280,8 @@ Once the SSH tunnel is active, you can connect Power BI to your MySQL database o
   - **Database**: `youtube_analytics`.
   - **Username**: Your RDS MySQL username.
   - **Password**: Your RDS MySQL password.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
