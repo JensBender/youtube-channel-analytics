@@ -135,10 +135,10 @@ The report enables users to navigate interactively through metrics and time peri
 
 <!-- GETTING STARTED -->
 ## 🚀 Getting Started
+Follow these steps to set up the required infrastructure and tools for the project.
 
 ### Prerequisites
-For this project, you will need the following tools and services:
-
+Ensure you have the following tools and services:
 - **AWS Account**:
   - **EC2 instance**: Running Amazon Linux 2 (t2.micro for free tier) to host the ETL pipeline.
   - **RDS instance**: To host a MySQL database.
@@ -147,7 +147,7 @@ For this project, you will need the following tools and services:
 - **Docker**: Installed on the EC2 instance to containerize the ETL pipeline.
 - **Apache Airflow**: Running inside Docker containers on EC2 to orchestrate the ETL pipeline.
 - **Hugging Face Account**: To host the sentiment analysis model on Hugging Face Spaces.
-- **Power BI Desktop**: Installed on your local machine and connected to the AWS MySQL database.
+- **Power BI Desktop**: Installed on your local machine and connected to the AWS MySQL database to visualize data.
 
 ---
 
