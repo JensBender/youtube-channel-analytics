@@ -44,7 +44,7 @@
       <li><a href="#connect-to-ec2-and-set-up-ssh-tunnel">Connect to EC2 and Set Up SSH Tunnel</a></li> 
       <li><a href="#set-up-youtube-api">Set Up YouTube API</a></li> 
       <li><a href="#set-up-hugging-face">Set Up Hugging Face</a></li> 
-      <li><a href="#store-sensitive-information-in-a-env-file">Store Sensitive Information in a `.env` File</a></li> 
+      <li><a href="#environment-variables">Environment Variables</a></li> 
       <li><a href="#set-up-docker-and-apache-airflow-on-ec2">Set Up Docker and Apache Airflow on EC2</a></li> 
       <li><a href="#set-up-power-bi">Set Up Power BI</a></li> 
       <li><a href="#additional-tips">Additional Tips</a></li> 
@@ -223,8 +223,8 @@ Ensure you have the following tools and services:
 
 ---
 
-### Store Sensitive Information in a `.env` File
-- Create a `.env` file on your local machine with the following content:
+### Environment Variables
+- To store sensitive information, create a `.env` file on your local machine with the following content:
   ```
   aws_mysql_endpoint = <your-rds-endpoint>
   aws_mysql_user = <your-rds-username>
