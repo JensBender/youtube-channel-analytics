@@ -44,7 +44,7 @@
       <li><a href="#connect-to-ec2-and-set-up-ssh-tunnel">Connect to EC2 and Set Up SSH Tunnel</a></li> 
       <li><a href="#set-up-youtube-api">Set Up YouTube API</a></li> 
       <li><a href="#set-up-hugging-face">Set Up Hugging Face</a></li> 
-      <li><a href="#environment-variables">Environment Variables</a></li> 
+      <li><a href="#manage-environment-variables">Manage Environment Variables</a></li> 
       <li><a href="#set-up-docker-and-apache-airflow-on-ec2">Set Up Docker and Apache Airflow on EC2</a></li> 
       <li><a href="#set-up-power-bi">Set Up Power BI</a></li> 
       <li><a href="#additional-tips">Additional Tips</a></li> 
@@ -221,7 +221,7 @@ Ensure you have the following tools and services:
 
 ---
 
-### Environment Variables
+### Manage Environment Variables
 - To store sensitive information, create a `.env` file on your local machine with the following content:
   ```
   aws_mysql_endpoint = <your-rds-endpoint>
@@ -238,7 +238,7 @@ Ensure you have the following tools and services:
   ```
   scp -i <your-key.pem> .env ec2-user@<your-ec2-public-ip-address>:/home/ec2-user/
   ```
-- The .env file will be used to load environment variables into Docker, keeping sensitive information safe and accessible to your Airflow DAG code.
+- The `.env` file will be used to load environment variables into Docker, keeping sensitive information safe and accessible to your Airflow DAG code.
 
 ---
 
