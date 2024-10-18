@@ -168,7 +168,7 @@ Ensure you have the following tools and services:
   - Choose the **Free Tier** option (`db.t2.micro`).
   - Set **Public Accessibility** to **No** for added security (you’ll access it via SSH tunnel).
   - Create a new database named `youtube_analytics`.
-  - Save the **RDS endpoint**, **username**, and **password**. You will store these in a `.env` file as explained later.
+  - Save the **RDS endpoint**, **username**, and **password** for later use.
 - Configure RDS **Security Group**:  
   - Allow inbound connections on **port 3306** from the EC2 instance's security group.
 
@@ -208,18 +208,16 @@ Ensure you have the following tools and services:
 
 ### Set Up Hugging Face
 - Set up the sentiment analysis model on Hugging Face Spaces:
-  - Log in to your Hugging Face account or create one if you haven't already.
-  - Create a new Hugging Face Space:
+  - Log in to your Hugging Face account and create a new **Space**:
     - Choose Space hardware: "CPU basic 2 vCPU 16 GB FREE" for free-tier eligibility.
     - Select "Private" Space for better security.
   - Upload the following files from this repo's `huggingface_space` subdirectory:
     - `app_roberta.py`: Contains the code for deploying the RoBERTa sentiment analysis model as a Gradio web application with API endpoint.
     - `requirements.txt`: Lists the Python dependencies needed for model deployment on Hugging Face Spaces.
-  - After deployment, note your Space's name (e.g., "YourUserName/roberta-sentiment-analysis-api").
+  - After deployment, note your Space's name (e.g., "YourUserName/roberta-sentiment-analysis-api") for later use.
 - Create a Hugging Face access token:
   - Go to your Hugging Face account settings. 
-  - Navigate to **Settings > Access Tokens** and generate a new token.
-- Save the Hugging Face access token and your Space's name in a `.env` file as explained in the next section.
+  - Navigate to **Settings > Access Tokens**, generate a new token and save it for later use.
 
 ---
 
