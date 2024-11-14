@@ -11,7 +11,7 @@
   </a>
   <p>
     <br />
-    Empower YouTubers with actionable insights into channel performance relative to similar channels using an automated ETL pipeline and an interactive Power BI report for comparative analysis of key performance metrics.
+    Developed an ETL pipeline for YouTube channel analytics using YouTube API, sentiment analysis with Hugging Face, and MySQL for data storage. Automated workflows with Apache Airflow and Docker on AWS. Visualized key metrics and comparative insights in an interactive Power BI report. 
     <br />
   </p>
 </div> 
