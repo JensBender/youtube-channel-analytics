@@ -2,20 +2,11 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
-<div align="center">
-  <a href="https://github.com/JensBender/youtube-channel-analytics">
-    <img src="images/logo1.jpg" width=15%>
-  </a>
-  <a href="https://github.com/JensBender/youtube-channel-analytics">
-    <img src="images/logo2.png" width=80%>
-  </a>
-  <p>
-    <br />
-    Developed an ETL pipeline for YouTube channel analytics using YouTube API, sentiment analysis with Hugging Face, and MySQL for data storage. Automated workflows with Apache Airflow and Docker on AWS. Visualized key metrics and comparative insights in an interactive Power BI report. 
-    <br />
-  </p>
-</div> 
+<img src="images/logo1.jpg" width=15%><img src="images/logo2.png" width=80%>
 
+<!-- SHORT SUMMARY  -->
+Developed an ETL pipeline for YouTube channel analytics using YouTube API, sentiment analysis with Hugging Face, and MySQL for data storage. Automated workflows with Apache Airflow and Docker on AWS. Visualized key metrics and comparative insights in an interactive Power BI report. 
+ 
 ---
 
 <!-- TABLE OF CONTENTS -->
