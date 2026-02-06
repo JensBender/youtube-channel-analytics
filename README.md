@@ -5,7 +5,7 @@
 <img src="images/logo1.jpg" width=15%><img src="images/logo2.png" width=80%>
 
 <!-- SHORT SUMMARY  -->
-Developed an ETL pipeline for YouTube channel analytics using YouTube API, sentiment analysis with Hugging Face, and MySQL for data storage. Automated workflows with Apache Airflow and Docker on AWS. Visualized key metrics and comparative insights in an interactive Power BI report. 
+Implemented an ETL pipeline for YouTube channel analytics using the YouTube API, enriched with sentiment analysis via Hugging Face. Orchestrated workflows with Airflow and Docker on AWS, storing data in MySQL. Visualized key metrics and comparative insights in an interactive Power BI dashboard.
  
 ---
 
