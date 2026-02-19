@@ -1,0 +1,11 @@
+# Prompts for AI image generators to create project header image 
+# Try 3:1 or 16:9 aspect ratio, since 4:1 and 5:1 is not supported by most AI image generators
+
+# Prompt 1: Short Summary
+A header image with 3:1 aspect ratio for an ETL pipeline for YouTube channel analytics using the YouTube API, enriched with sentiment analysis via Hugging Face. Orchestrated workflows with Airflow and Docker on AWS, storing data in MySQL. Visualized key metrics and comparative insights in an interactive Power BI dashboard. No text. 
+
+# Prompt 2: Refined Short Summary
+A header image with 3:1 aspect ratio for an ETL pipeline for YouTube channel analytics using the YouTube API, enriched with sentiment analysis via Hugging Face. Visualized key metrics and comparative insights in an interactive dashboard to empower YouTube content creators with actionable insights into their channel's performance with comparison to related channels. No text. 
+
+# Prompt #3: Elevator Pitch
+A header image with 3:1 aspect ratio for an ETL pipeline for YouTube analytics to empower YouTube content creators with actionable insights into their channel's performance in comparison to other channels. No text.
