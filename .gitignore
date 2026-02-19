@@ -18,5 +18,7 @@ images/mysql_logo.svg.png
 images/pandas_logo.svg.png
 images/python_logo.svg.png
 images/youtube_logo.svg.png
+images/*_chatgpt*
+images/*_nanobanana*
 sentiment_analysis_method_comparison.csv
 sentiment_analysis_method_comparison.ods
