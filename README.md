@@ -2,7 +2,7 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
-<img src="images/logo1.jpg" width=15%><img src="images/logo2.png" width=80%>
+<img src="images/header.png" alt="Header Image">
 
 <!-- SHORT SUMMARY  -->
 Implemented an ETL pipeline for YouTube channel analytics using the YouTube API, enriched with sentiment analysis via Hugging Face. Orchestrated workflows with Airflow and Docker on AWS, storing data in MySQL. Visualized key metrics and comparative insights in an interactive Power BI dashboard.
@@ -58,7 +58,7 @@ To empower YouTube content creators and marketers with actionable insights into 
 - **Data Transformation**: Performed sentiment analysis on video comments via API requests to a RoBERTa sentiment analysis model, which I deployed using Gradio on a private Hugging Face Space.
 - **Data Loading**: Stored the transformed data in a MySQL database hosted on AWS.
 - **Automation**: Managed the ETL workflow using Apache Airflow, Docker, and AWS.
-- **Data Visualization**: Designed an interactive Power BI report to deliver insigths into channel performance, featuring key metrics and comparative analysis. 
+- **Data Visualization**: Designed an interactive Power BI report to deliver insights into channel performance, featuring key metrics and comparative analysis. 
 
 This project enables YouTube content creators to easily monitor and evaluate their channel's performance relative to their peers, allowing for more informed decision-making and strategic planning.
 
@@ -152,7 +152,7 @@ Ensure you have the following tools and services:
   - Choose the **t2.micro** instance type for free-tier eligibility.
 - Configure EC2 **Security Groups**:  
   - **SSH (port 22)** from your local machine’s IP address to connect via SSH.
-  - **Airflow Webserver (port 8080)** from your your local machine’s IP address to access the Airflow Webserver UI.
+  - **Airflow Webserver (port 8080)** from your local machine’s IP address to access the Airflow Webserver UI.
   - **MySQL (port 3306)** from the EC2 instance’s security group for database connections to the RDS instance.
   - **HTTP (port 80)** and **HTTPS (port 443)** to all IP addresses to download packages.
 
@@ -293,18 +293,21 @@ This project is licensed under the [MIT License](LICENSE).
 <!-- CREDITS -->
 ## 👏 Credits
 This project was made possible with the help of the following resources and tutorials:
-- **Project Logo**: Created using AI technology by [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
-- **YouTube API**: Tutorials by [Corey Schafer](https://www.youtube.com/watch?v=th5_9woFJmk) and [Thu Vu data analytics](https://www.youtube.com/watch?v=D56_Cx36oGY).
-- **Apache Airflow**: Tutorials by [coder2j](https://www.youtube.com/watch?v=z7xyNOF8tak&list=PLwFJcsJ61oujAqYpMp1kdUBcPG0sE0QMT) and [Data with Marc](https://www.youtube.com/watch?v=vEApEfa8HXk&list=PL79i7SgJCJ9hf7JgG3S-3lOpsk2QCpWkD).
-- **ETL Pipeline Flowchart**: Created using [draw.io](https://app.diagrams.net/).
-- **Power BI**: Tutorials by [BI Elite](https://www.youtube.com/@BIElite) and [How to Power BI](https://www.youtube.com/@HowtoPowerBI).
-- **Power BI Icons**: Attributions for icons used in the report.
-  - <a href="https://www.flaticon.com/free-icons/eye" title="eye icons">Eye icons created by Kiranshastry - Flaticon</a>
-  - <a href="https://www.flaticon.com/free-icons/like" title="like icons">Like icons created by logisstudio - Flaticon</a>
-  - <a href="https://www.flaticon.com/free-icons/comment" title="comment icons">Comment icons created by Freepik - Flaticon</a>
-  - <a href="https://www.flaticon.com/free-icons/youtube" title="youtube icons">YouTube icons created by Freepik - Flaticon</a>
-  - <a href="https://www.flaticon.com/free-icons/subscribe" title="subscribe icons">Subscribe icons created by Komar Dews - Flaticon</a>
-  - <a href="https://www.flaticon.com/free-icons/information" title="information icons">Information icons created by Freepik - Flaticon</a>
+- **Tutorials**: 
+  - **YouTube API**: Tutorials by [Corey Schafer](https://www.youtube.com/watch?v=th5_9woFJmk) and [Thu Vu data analytics](https://www.youtube.com/watch?v=D56_Cx36oGY).
+  - **Apache Airflow**: Tutorials by [coder2j](https://www.youtube.com/watch?v=z7xyNOF8tak&list=PLwFJcsJ61oujAqYpMp1kdUBcPG0sE0QMT) and [Data with Marc](https://www.youtube.com/watch?v=vEApEfa8HXk&list=PL79i7SgJCJ9hf7JgG3S-3lOpsk2QCpWkD).
+  - **Power BI**: Tutorials by [BI Elite](https://www.youtube.com/@BIElite) and [How to Power BI](https://www.youtube.com/@HowtoPowerBI).
+- **Images**: 
+  - **Header**: The [header image](./images/header.png) was generated using [Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/) via the [Gemini app](https://gemini.google.com/app) by Google. 
+  - **Logo**: The [project logo](images/logo1.jpg) was generated using [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
+  - **ETL Pipeline Flowchart**: Created using [draw.io](https://app.diagrams.net/).
+  - **Icons**: Sourced from [Flaticon](https://www.flaticon.com/) for the Power BI report:
+    - [Eye icons created by Kiranshastry - Flaticon](https://www.flaticon.com/free-icons/eye "eye icons")
+    - [Like icons created by logisstudio - Flaticon](https://www.flaticon.com/free-icons/like "like icons")
+    - [Comment icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/comment "comment icons")
+    - [YouTube icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/youtube "youtube icons")
+    - [Subscribe icons created by Komar Dews - Flaticon](https://www.flaticon.com/free-icons/subscribe "subscribe icons")
+    - [Information icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/information "information icons")
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
