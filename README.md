@@ -299,7 +299,7 @@ This project was made possible with the help of the following resources and tuto
   - **Power BI**: Tutorials by [BI Elite](https://www.youtube.com/@BIElite) and [How to Power BI](https://www.youtube.com/@HowtoPowerBI).
 - **Images**: 
   - **Header**: The [header image](./images/header.png) was generated using [Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/) via the [Gemini app](https://gemini.google.com/app) by Google. 
-  - **Logo**: The [project logo](images/logo1.jpg) was generated using [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
+  - **Logo**: The [project logo](images/logo.jpg) was generated using [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
   - **ETL Pipeline Flowchart**: Created using [draw.io](https://app.diagrams.net/).
   - **Icons**: Sourced from [Flaticon](https://www.flaticon.com/) for the Power BI report:
     - [Eye icons created by Kiranshastry - Flaticon](https://www.flaticon.com/free-icons/eye "eye icons")
