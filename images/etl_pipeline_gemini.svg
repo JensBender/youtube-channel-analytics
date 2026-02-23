@@ -82,13 +82,13 @@
 
   <!-- ==================== ORCHESTRATION LINES ==================== -->
   
-  <text x="460" y="355" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="middle">Automate ETL</text>
+  <text x="460" y="350" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="middle">Automate ETL</text>
   
   <!-- Left Bracket (to Extract) -->
-  <path d="M 390 350 L 260 350 L 260 215" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 390 345 L 260 345 L 260 215" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
   
   <!-- Right Bracket (to Load) -->
-  <path d="M 530 350 L 660 350 L 660 215" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 530 345 L 660 345 L 660 215" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
 
 
   <!-- ==================== MAIN DATA FLOW LINES ==================== -->
@@ -120,26 +120,27 @@
   </g>
 
   <!-- 2. Transform Node (Python, Pandas, Hugging Face) -->
-  <g transform="translate(330, 60)">
+  <g transform="translate(330, 90)">
     <text x="130" y="-15" class="node-title">Transform</text>
-    <rect width="260" height="280" rx="15" fill="url(#panel-grad)" stroke="url(#border-transform)" stroke-width="2" filter="url(#panel-glow)"/>
+    <rect width="260" height="220" rx="15" fill="url(#panel-grad)" stroke="url(#border-transform)" stroke-width="2" filter="url(#panel-glow)"/>
     
     <!-- Python Row -->
-    <g transform="translate(30, 30)">
-      <g transform="translate(10, 5) scale(0.65)">
-         <path d="M15,2.5 C7.5,2.5 7.5,10 7.5,10 L7.5,15 L22.5,15 L22.5,20 L7.5,20 C0,20 0,10 0,10 C0,0 15,0 15,0 C30,0 30,10 30,10 L25,10 C25,10 25,2.5 15,2.5 Z" fill="#38bdf8"/>
-         <path d="M15,37.5 C22.5,37.5 22.5,30 22.5,30 L22.5,25 L7.5,25 L7.5,20 L22.5,20 C30,20 30,30 30,30 C30,40 15,40 15,40 C0,40 0,30 0,30 L5,30 C5,30 5,37.5 15,37.5 Z" fill="#fcd34d"/>
-         <circle cx="10" cy="5" r="2.5" fill="#0f172a"/>
-         <circle cx="20" cy="35" r="2.5" fill="#0f172a"/>
+    <g transform="translate(30, 20)">
+      <!-- Refined Python Logo -->
+      <g transform="translate(15, -3) scale(1.2)">
+         <path d="M14.5,1 C9,1 9,5 9,5 L9,8.5 L20.5,8.5 L20.5,10.5 L8.5,10.5 C4,10.5 4,16.5 4,16.5 C4,22.5 8.5,22.5 8.5,22.5 L12,22.5 L12,19 C12,15.5 15,13 18.5,13 L23.5,13 C26.5,13 28,11.5 28,8.5 L28,5 C28,1 21.5,1 14.5,1 Z" fill="#38bdf8"/>
+         <path d="M14.5,28 C20,28 20,24 20,24 L20,20.5 L8.5,20.5 L8.5,18.5 L20.5,18.5 C25,18.5 25,12.5 25,12.5 C25,6.5 20.5,6.5 20.5,6.5 L17,6.5 L17,10 C17,13.5 14,16 10.5,16 L5.5,16 C2.5,16 1,17.5 1,20.5 L1,24 C1,28 7.5,28 14.5,28 Z" fill="#fcd34d"/>
+         <circle cx="10.5" cy="4.5" r="1.5" fill="#1e293b"/>
+         <circle cx="18.5" cy="24.5" r="1.5" fill="#1e293b"/>
       </g>
-      <text x="60" y="28" class="node-text">python™</text>
+      <text x="60" y="24" class="node-text">python</text>
     </g>
 
     <!-- Divider -->
-    <line x1="40" y1="90" x2="220" y2="90" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="40" y1="70" x2="220" y2="70" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
 
     <!-- Pandas Row -->
-    <g transform="translate(30, 110)">
+    <g transform="translate(30, 90)">
       <g transform="translate(15, 0)">
          <rect x="0" y="5" width="4" height="20" fill="#f8fafc"/>
          <rect x="8" y="0" width="4" height="25" fill="#f8fafc"/>
@@ -152,10 +153,10 @@
     </g>
 
     <!-- Divider -->
-    <line x1="40" y1="170" x2="220" y2="170" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="40" y1="140" x2="220" y2="140" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
 
     <!-- Hugging Face Row -->
-    <g transform="translate(30, 195)">
+    <g transform="translate(30, 160)">
       <text x="15" y="26" font-size="32">🤗</text>
       <text x="60" y="24" class="node-text">Hugging Face</text>
     </g>
@@ -175,13 +176,16 @@
     </g>
 
     <!-- AWS Logo & RDS Icon -->
-    <g transform="translate(30, 100)">
-      <text x="0" y="30" class="aws-text">aws</text>
-      <path d="M -5 42 Q 15 55 35 38" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
-      <path d="M 30 40 L 38 35 L 37 45" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    <g transform="translate(0, 90)">
+      <!-- Refined AWS Logo Position (Higher and More Right) -->
+      <g transform="translate(50, 5)">
+        <text x="0" y="30" class="aws-text">aws</text>
+        <path d="M -5 42 Q 15 55 35 38" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+        <path d="M 30 40 L 38 35 L 37 45" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      </g>
       
       <!-- RDS Icon -->
-      <g transform="translate(90, 5)">
+      <g transform="translate(105, 10)">
         <rect x="0" y="0" width="40" height="40" rx="6" fill="#a855f7" opacity="0.9"/>
         <ellipse cx="20" cy="15" rx="10" ry="4" fill="none" stroke="#fff" stroke-width="1.5"/>
         <path d="M 10 15 L 10 25 A 10 4 0 0 0 30 25 L 30 15" fill="none" stroke="#fff" stroke-width="1.5"/>
@@ -217,7 +221,7 @@
     <!-- Line Chart Panel -->
     <g transform="translate(0, 130)">
       <rect width="160" height="100" rx="10" fill="url(#panel-grad)" stroke="#334155" stroke-width="1.5"/>
-      <text x="15" y="20" class="node-sub">Views Trend ↗</text>
+      <text x="15" y="20" class="node-sub">Engagement ↗</text>
       
       <!-- Gridlines -->
       <line x1="15" y1="40" x2="145" y2="40" stroke="#334155" stroke-width="1" stroke-dasharray="2 2"/>
@@ -265,7 +269,7 @@
   </g>
 
   <!-- 5. Orchestrator Node (Airflow, Docker, EC2) -->
-  <g transform="translate(340, 380)">
+  <g transform="translate(340, 375)">
     <rect width="240" height="200" rx="15" fill="url(#panel-grad)" stroke="#0ea5e9" stroke-width="2" filter="url(#panel-glow)"/>
     
     <!-- Airflow Row -->
@@ -297,22 +301,24 @@
     </g>
 
     <!-- AWS / EC2 Row -->
-    <g transform="translate(0, 150)">
+    <g transform="translate(0, 140)">
       <text x="120" y="0" class="node-sub" text-anchor="middle">Hosted on EC2</text>
-      <g transform="translate(45, 10)">
+      
+      <!-- Refined AWS Logo Position (Higher and More Right) -->
+      <g transform="translate(75, 5)">
         <text x="0" y="20" class="aws-text">aws</text>
         <path d="M -5 32 Q 15 45 35 28" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
         <path d="M 30 30 L 38 25 L 37 35" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
-        
-        <!-- EC2 Icon -->
-        <g transform="translate(80, 0)">
-          <rect x="0" y="0" width="28" height="28" rx="4" fill="#f97316" opacity="0.9"/>
-          <rect x="7" y="7" width="14" height="14" fill="none" stroke="#fff" stroke-width="1.5"/>
-          <path d="M 10 7 L 10 4 M 14 7 L 14 4 M 18 7 L 18 4" stroke="#fff" stroke-width="1"/>
-          <path d="M 10 21 L 10 24 M 14 21 L 14 24 M 18 21 L 18 24" stroke="#fff" stroke-width="1"/>
-          <path d="M 7 10 L 4 10 M 7 14 L 4 14 M 7 18 L 4 18" stroke="#fff" stroke-width="1"/>
-          <path d="M 21 10 L 24 10 M 21 14 L 24 14 M 21 18 L 24 18" stroke="#fff" stroke-width="1"/>
-        </g>
+      </g>
+      
+      <!-- EC2 Icon -->
+      <g transform="translate(130, 8)">
+        <rect x="0" y="0" width="28" height="28" rx="4" fill="#f97316" opacity="0.9"/>
+        <rect x="7" y="7" width="14" height="14" fill="none" stroke="#fff" stroke-width="1.5"/>
+        <path d="M 10 7 L 10 4 M 14 7 L 14 4 M 18 7 L 18 4" stroke="#fff" stroke-width="1"/>
+        <path d="M 10 21 L 10 24 M 14 21 L 14 24 M 18 21 L 18 24" stroke="#fff" stroke-width="1"/>
+        <path d="M 7 10 L 4 10 M 7 14 L 4 14 M 7 18 L 4 18" stroke="#fff" stroke-width="1"/>
+        <path d="M 21 10 L 24 10 M 21 14 L 24 14 M 21 18 L 24 18" stroke="#fff" stroke-width="1"/>
       </g>
     </g>
   </g>
