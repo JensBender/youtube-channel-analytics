@@ -1,0 +1,346 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 620" width="100%" height="100%">
+  <defs>
+    <!-- Background and UI Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    
+    <linearGradient id="panel-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Highlight gradients for node borders -->
+    <linearGradient id="border-transform" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+
+    <!-- Line Chart Area Fill Gradient -->
+    <linearGradient id="line-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Glowing effect for data particles -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="panel-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Background Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.5"/>
+    </pattern>
+
+    <!-- Arrow Markers -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#64748b"/>
+    </marker>
+
+    <!-- SVG Styles -->
+    <style>
+      .node-title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: bold; fill: #f8fafc; text-anchor: middle; }
+      .node-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 20px; font-weight: bold; fill: #f8fafc; }
+      .node-sub { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12px; fill: #94a3b8; }
+      .label { font-family: 'Roboto Mono', monospace; font-size: 14px; fill: #cbd5e1; font-weight: bold; }
+      .aws-text { font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; fill: #f8fafc; }
+      
+      @keyframes dashFlow {
+        from { stroke-dashoffset: 16; }
+        to { stroke-dashoffset: 0; }
+      }
+      .flow-line {
+        stroke: #64748b;
+        stroke-width: 3;
+        fill: none;
+        stroke-dasharray: 8 8;
+        animation: dashFlow 1s linear infinite;
+      }
+    </style>
+
+    <!-- Paths for Particles -->
+    <path id="p-extract" d="M 210 200 L 310 200" fill="none"/>
+    <path id="p-load" d="M 610 200 L 710 200" fill="none"/>
+    <path id="p-viz" d="M 940 200 L 1040 200" fill="none"/>
+  </defs>
+
+  <!-- Base Background & Grid -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- ==================== ORCHESTRATION LINES ==================== -->
+  
+  <text x="460" y="355" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#94a3b8" text-anchor="middle">Automate ETL</text>
+  
+  <!-- Left Bracket (to Extract) -->
+  <path d="M 390 350 L 260 350 L 260 215" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Right Bracket (to Load) -->
+  <path d="M 530 350 L 660 350 L 660 215" stroke="#475569" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+
+  <!-- ==================== MAIN DATA FLOW LINES ==================== -->
+  
+  <!-- Extract -->
+  <path d="M 210 200 L 310 200" class="flow-line" marker-end="url(#arrow)"/>
+  <text x="260" y="185" class="label" text-anchor="middle">Extract</text>
+
+  <!-- Load -->
+  <path d="M 610 200 L 710 200" class="flow-line" marker-end="url(#arrow)"/>
+  <text x="660" y="185" class="label" text-anchor="middle">Load</text>
+
+  <!-- Visualize -->
+  <path d="M 940 200 L 1040 200" class="flow-line" marker-end="url(#arrow)"/>
+  <text x="990" y="185" class="label" text-anchor="middle">Visualize</text>
+
+
+  <!-- ==================== NODES ==================== -->
+
+  <!-- 1. YouTube API Node -->
+  <g transform="translate(40, 160)">
+    <rect width="150" height="80" rx="12" fill="url(#panel-grad)" stroke="#ef4444" stroke-width="2" filter="url(#panel-glow)"/>
+    <g transform="translate(15, 25)">
+      <rect x="0" y="0" width="40" height="30" rx="8" fill="#ef4444"/>
+      <polygon points="15,8 15,22 27,15" fill="#ffffff"/>
+    </g>
+    <text x="65" y="42" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="bold" fill="#f8fafc">YouTube</text>
+    <text x="65" y="60" class="node-sub">API</text>
+  </g>
+
+  <!-- 2. Transform Node (Python, Pandas, Hugging Face) -->
+  <g transform="translate(330, 60)">
+    <text x="130" y="-15" class="node-title">Transform</text>
+    <rect width="260" height="280" rx="15" fill="url(#panel-grad)" stroke="url(#border-transform)" stroke-width="2" filter="url(#panel-glow)"/>
+    
+    <!-- Python Row -->
+    <g transform="translate(30, 30)">
+      <g transform="translate(10, 5) scale(0.65)">
+         <path d="M15,2.5 C7.5,2.5 7.5,10 7.5,10 L7.5,15 L22.5,15 L22.5,20 L7.5,20 C0,20 0,10 0,10 C0,0 15,0 15,0 C30,0 30,10 30,10 L25,10 C25,10 25,2.5 15,2.5 Z" fill="#38bdf8"/>
+         <path d="M15,37.5 C22.5,37.5 22.5,30 22.5,30 L22.5,25 L7.5,25 L7.5,20 L22.5,20 C30,20 30,30 30,30 C30,40 15,40 15,40 C0,40 0,30 0,30 L5,30 C5,30 5,37.5 15,37.5 Z" fill="#fcd34d"/>
+         <circle cx="10" cy="5" r="2.5" fill="#0f172a"/>
+         <circle cx="20" cy="35" r="2.5" fill="#0f172a"/>
+      </g>
+      <text x="60" y="28" class="node-text">python™</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="40" y1="90" x2="220" y2="90" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- Pandas Row -->
+    <g transform="translate(30, 110)">
+      <g transform="translate(15, 0)">
+         <rect x="0" y="5" width="4" height="20" fill="#f8fafc"/>
+         <rect x="8" y="0" width="4" height="25" fill="#f8fafc"/>
+         <rect x="16" y="10" width="4" height="15" fill="#f8fafc"/>
+         <circle cx="2" cy="0" r="2" fill="#c084fc"/>
+         <circle cx="10" cy="30" r="2" fill="#c084fc"/>
+         <circle cx="18" cy="0" r="2" fill="#c084fc"/>
+      </g>
+      <text x="60" y="24" class="node-text">pandas</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="40" y1="170" x2="220" y2="170" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- Hugging Face Row -->
+    <g transform="translate(30, 195)">
+      <text x="15" y="26" font-size="32">🤗</text>
+      <text x="60" y="24" class="node-text">Hugging Face</text>
+    </g>
+  </g>
+
+  <!-- 3. MySQL / AWS Node -->
+  <g transform="translate(730, 110)">
+    <rect width="190" height="180" rx="12" fill="url(#panel-grad)" stroke="#f97316" stroke-width="2" filter="url(#panel-glow)"/>
+    
+    <!-- Dolphin/MySQL Mock -->
+    <g transform="translate(20, 20)">
+      <path d="M 120 15 C 130 -5 145 0 150 15 C 145 15 140 10 135 15 C 130 25 125 30 120 15 Z" fill="#0ea5e9" opacity="0.8"/>
+      <text x="75" y="40" font-family="'Segoe UI', sans-serif" font-size="28" font-weight="bold" text-anchor="middle">
+        <tspan fill="#0ea5e9">My</tspan><tspan fill="#f59e0b">SQL</tspan>
+      </text>
+      <text x="75" y="60" class="node-sub" text-anchor="middle">Hosted on RDS</text>
+    </g>
+
+    <!-- AWS Logo & RDS Icon -->
+    <g transform="translate(30, 100)">
+      <text x="0" y="30" class="aws-text">aws</text>
+      <path d="M -5 42 Q 15 55 35 38" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      <path d="M 30 40 L 38 35 L 37 45" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+      
+      <!-- RDS Icon -->
+      <g transform="translate(90, 5)">
+        <rect x="0" y="0" width="40" height="40" rx="6" fill="#a855f7" opacity="0.9"/>
+        <ellipse cx="20" cy="15" rx="10" ry="4" fill="none" stroke="#fff" stroke-width="1.5"/>
+        <path d="M 10 15 L 10 25 A 10 4 0 0 0 30 25 L 30 15" fill="none" stroke="#fff" stroke-width="1.5"/>
+        <path d="M 20 20 L 25 32 M 20 20 L 15 32 M 10 25 L 5 32 M 30 25 L 35 32" stroke="#fff" stroke-width="1" opacity="0.5"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- 4. Power BI Node + Dashboards -->
+  <g transform="translate(1060, 150)">
+    <!-- Connector to Line Chart -->
+    <path d="M 80 100 L 80 130" stroke="#475569" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+    <circle cx="80" cy="100" r="2.5" fill="#38bdf8">
+       <animate attributeName="cy" values="100;130;100" dur="2s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Connector to Donut Chart -->
+    <path d="M 80 230 L 80 260" stroke="#475569" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+    <circle cx="80" cy="230" r="2.5" fill="#10b981">
+       <animate attributeName="cy" values="230;260;230" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Main Power BI Block -->
+    <rect width="160" height="100" rx="12" fill="url(#panel-grad)" stroke="#eab308" stroke-width="2" filter="url(#panel-glow)"/>
+    <g transform="translate(20, 25)">
+      <rect x="0" y="20" width="8" height="20" fill="#facc15" rx="1"/>
+      <rect x="12" y="10" width="8" height="30" fill="#facc15" rx="1"/>
+      <rect x="24" y="0" width="8" height="40" fill="#facc15" rx="1"/>
+      <path d="M -5 -5 L -5 45 L 35 45" fill="none" stroke="#475569" stroke-width="2"/>
+    </g>
+    <text x="100" y="55" font-family="'Segoe UI', sans-serif" font-size="18" font-weight="bold" fill="#f8fafc" text-anchor="middle">Power BI</text>
+
+    <!-- Line Chart Panel -->
+    <g transform="translate(0, 130)">
+      <rect width="160" height="100" rx="10" fill="url(#panel-grad)" stroke="#334155" stroke-width="1.5"/>
+      <text x="15" y="20" class="node-sub">Views Trend ↗</text>
+      
+      <!-- Gridlines -->
+      <line x1="15" y1="40" x2="145" y2="40" stroke="#334155" stroke-width="1" stroke-dasharray="2 2"/>
+      <line x1="15" y1="65" x2="145" y2="65" stroke="#334155" stroke-width="1" stroke-dasharray="2 2"/>
+      
+      <!-- Sparkline and Area -->
+      <path id="sparkline-path" d="M 15 75 Q 30 50 50 65 T 90 45 T 145 35" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 15 75 Q 30 50 50 65 T 90 45 T 145 35 L 145 90 L 15 90 Z" fill="url(#line-fill)"/>
+      
+      <!-- Animated glowing point along the path -->
+      <circle r="3" fill="#ffffff" filter="url(#glow)">
+        <animateMotion dur="4s" repeatCount="indefinite">
+          <mpath href="#sparkline-path"/>
+        </animateMotion>
+      </circle>
+
+      <!-- Base Axes -->
+      <line x1="15" y1="90" x2="145" y2="90" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="15" y1="28" x2="15" y2="90" stroke="#475569" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Donut Chart Panel -->
+    <g transform="translate(0, 260)">
+      <rect width="160" height="100" rx="10" fill="url(#panel-grad)" stroke="#334155" stroke-width="1.5"/>
+      <text x="15" y="20" class="node-sub">Sentiment</text>
+      
+      <g transform="translate(80, 58)">
+        <!-- Inner background track -->
+        <circle r="26" fill="none" stroke="#1e293b" stroke-width="8"/>
+        
+        <!-- Static segments -->
+        <g>
+          <!-- Positive (Green) -->
+          <circle r="26" fill="none" stroke="#10b981" stroke-width="8" stroke-dasharray="100 163.4" stroke-linecap="round"/>
+          <!-- Neutral (Gray) -->
+          <circle r="26" fill="none" stroke="#94a3b8" stroke-width="8" stroke-dasharray="35 163.4" stroke-dashoffset="-110" stroke-linecap="round"/>
+          <!-- Negative (Red) -->
+          <circle r="26" fill="none" stroke="#ef4444" stroke-width="8" stroke-dasharray="18 163.4" stroke-dashoffset="-155" stroke-linecap="round"/>
+        </g>
+        
+        <!-- Center text -->
+        <text x="0" y="5" font-family="'Segoe UI', sans-serif" font-size="14" font-weight="bold" fill="#10b981" text-anchor="middle">60%</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 5. Orchestrator Node (Airflow, Docker, EC2) -->
+  <g transform="translate(340, 380)">
+    <rect width="240" height="200" rx="15" fill="url(#panel-grad)" stroke="#0ea5e9" stroke-width="2" filter="url(#panel-glow)"/>
+    
+    <!-- Airflow Row -->
+    <g transform="translate(20, 25)">
+      <g transform="translate(20, 15)">
+         <g>
+           <polygon points="0,0 12,-12 12,0" fill="#ef4444"/>
+           <polygon points="0,0 12,12 0,12" fill="#10b981"/>
+           <polygon points="0,0 -12,12 -12,0" fill="#38bdf8"/>
+           <polygon points="0,0 -12,-12 0,-12" fill="#14b8a6"/>
+         </g>
+      </g>
+      <text x="50" y="12" class="node-sub">Apache</text>
+      <text x="50" y="28" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="bold" fill="#f8fafc">Airflow</text>
+    </g>
+
+    <!-- Divider -->
+    <line x1="30" y1="75" x2="210" y2="75" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- Docker Row -->
+    <g transform="translate(20, 95)">
+      <g transform="translate(10, 5)">
+         <path d="M 0 10 Q 8 18 20 15 Q 30 15 35 5 Q 35 0 30 0 C 25 5 20 5 15 5 L 15 10 Z" fill="#0ea5e9"/>
+         <rect x="5" y="-5" width="6" height="6" fill="#38bdf8" stroke="#0f172a" stroke-width="0.5"/>
+         <rect x="13" y="-5" width="6" height="6" fill="#38bdf8" stroke="#0f172a" stroke-width="0.5"/>
+         <rect x="5" y="-12" width="6" height="6" fill="#38bdf8" stroke="#0f172a" stroke-width="0.5"/>
+      </g>
+      <text x="65" y="15" font-family="'Segoe UI', sans-serif" font-size="22" font-weight="bold" fill="#f8fafc">docker</text>
+    </g>
+
+    <!-- AWS / EC2 Row -->
+    <g transform="translate(0, 150)">
+      <text x="120" y="0" class="node-sub" text-anchor="middle">Hosted on EC2</text>
+      <g transform="translate(45, 10)">
+        <text x="0" y="20" class="aws-text">aws</text>
+        <path d="M -5 32 Q 15 45 35 28" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 30 30 L 38 25 L 37 35" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round"/>
+        
+        <!-- EC2 Icon -->
+        <g transform="translate(80, 0)">
+          <rect x="0" y="0" width="28" height="28" rx="4" fill="#f97316" opacity="0.9"/>
+          <rect x="7" y="7" width="14" height="14" fill="none" stroke="#fff" stroke-width="1.5"/>
+          <path d="M 10 7 L 10 4 M 14 7 L 14 4 M 18 7 L 18 4" stroke="#fff" stroke-width="1"/>
+          <path d="M 10 21 L 10 24 M 14 21 L 14 24 M 18 21 L 18 24" stroke="#fff" stroke-width="1"/>
+          <path d="M 7 10 L 4 10 M 7 14 L 4 14 M 7 18 L 4 18" stroke="#fff" stroke-width="1"/>
+          <path d="M 21 10 L 24 10 M 21 14 L 24 14 M 21 18 L 24 18" stroke="#fff" stroke-width="1"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== ANIMATED DATA PARTICLES ==================== -->
+  
+  <!-- Extract Flow -->
+  <circle cx="0" cy="0" r="4" fill="#ef4444" filter="url(#glow)">
+    <animateMotion dur="1.5s" repeatCount="indefinite" begin="0s"><mpath href="#p-extract"/></animateMotion>
+  </circle>
+  <circle cx="0" cy="0" r="4" fill="#ef4444" filter="url(#glow)">
+    <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.75s"><mpath href="#p-extract"/></animateMotion>
+  </circle>
+
+  <!-- Load Flow -->
+  <circle cx="0" cy="0" r="4" fill="#fcd34d" filter="url(#glow)">
+    <animateMotion dur="1.5s" repeatCount="indefinite" begin="0s"><mpath href="#p-load"/></animateMotion>
+  </circle>
+  <circle cx="0" cy="0" r="4" fill="#fcd34d" filter="url(#glow)">
+    <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.75s"><mpath href="#p-load"/></animateMotion>
+  </circle>
+
+  <!-- Visualize Flow -->
+  <circle cx="0" cy="0" r="4" fill="#f97316" filter="url(#glow)">
+    <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.25s"><mpath href="#p-viz"/></animateMotion>
+  </circle>
+  <circle cx="0" cy="0" r="4" fill="#f97316" filter="url(#glow)">
+    <animateMotion dur="1.5s" repeatCount="indefinite" begin="1s"><mpath href="#p-viz"/></animateMotion>
+  </circle>
+
+</svg>
