@@ -300,12 +300,9 @@
 
     <!-- Docker Row -->
     <g transform="translate(20, 95)">
-      <g transform="translate(10, 5)">
-         <path d="M 0 10 Q 8 18 20 15 Q 30 15 35 5 Q 35 0 30 0 C 25 5 20 5 15 5 L 15 10 Z" fill="#0ea5e9"/>
-         <rect x="5" y="-5" width="6" height="6" fill="#38bdf8" stroke="#0f172a" stroke-width="0.5"/>
-         <rect x="13" y="-5" width="6" height="6" fill="#38bdf8" stroke="#0f172a" stroke-width="0.5"/>
-         <rect x="5" y="-12" width="6" height="6" fill="#38bdf8" stroke="#0f172a" stroke-width="0.5"/>
-      </g>
+      <svg x="10" y="-15" width="36" height="36" viewBox="0 0 512 512">
+         <path fill="#2496ed" d="M296 245h42v-38h-42zm-50 0h42v-38h-42zm-49 0h42v-38h-42zm-49 0h41v-38h-41zm-50 0h42v-38H98zm50-46h41v-38h-41zm49 0h42v-38h-42zm49 0h42v-38h-42zm0-46h42v-38h-42zm226 75s-18-17-55-11c-4-29-35-46-35-46s-29 35-8 74c-6 3-16 7-31 7H68c-5 19-5 145 133 145 99 0 173-46 208-130 52 4 63-39 63-39z"/>
+      </svg>
       <text x="65" y="15" font-family="'Segoe UI', sans-serif" font-size="22" font-weight="bold" fill="#f8fafc">Docker</text>
     </g>
 
