@@ -94,7 +94,7 @@ Built using Apache Airflow to automate the extraction, transformation, and loadi
 - **Data Loading**: Stored the transformed data in a MySQL database hosted on an AWS RDS instance, ensuring persistent storage and facilitating easy access for comparative analysis.
 - **Automation**: Orchestrated the ETL workflow using Apache Airflow with Docker, hosted on an AWS EC2 t2.micro instance.
 
-<img src="images/etl_pipeline_gemini.svg" alt="ETL pipeline">  
+<img src="images/etl_pipeline.svg" alt="ETL pipeline">  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -300,7 +300,7 @@ This project was made possible with the help of the following resources and tuto
 - **Images**: 
   - **Header**: The [header image](./images/header.png) was generated using [Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/) via the [Gemini app](https://gemini.google.com/app) by Google. 
   - **Logo**: The [project logo](images/logo.jpg) was generated using [Microsoft Copilot](https://play.google.com/store/apps/details?id=com.microsoft.copilot&pcampaignid=web_share).
-  - **Flowchart**: The [ETL pipeline flowchart (SVG)](./images/etl_pipeline_gemini.svg) was generated using [Gemini 3.1 Pro](https://deepmind.google/models/model-cards/gemini-3-1-pro/) via [Google AI Studio](https://aistudio.google.com/).
+  - **Flowchart**: The [ETL pipeline flowchart (SVG)](./images/etl_pipeline.svg) was generated using [Gemini 3.1 Pro](https://deepmind.google/models/model-cards/gemini-3-1-pro/) via [Google AI Studio](https://aistudio.google.com/).
   - **Icons**: Sourced from [Flaticon](https://www.flaticon.com/) for the Power BI report:
     - [Eye icons created by Kiranshastry - Flaticon](https://www.flaticon.com/free-icons/eye "eye icons")
     - [Like icons created by logisstudio - Flaticon](https://www.flaticon.com/free-icons/like "like icons")
