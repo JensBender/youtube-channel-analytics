@@ -79,6 +79,20 @@
       <path class="aws-smile" d="M618.79 368.94c-70.03 51.72-171.69 79.25-258.49 79.25A469.127 469.127 0 0 1 2.83 327.46c-6.53-5.89-.77-13.96 7.17-9.47a637.37 637.37 0 0 0 316.88 84.12 630.22 630.22 0 0 0 241.59-49.55c11.78-5 21.77 7.8 10.12 16.38z M647.98 335.65c-8.96-11.52-59.28-5.38-81.81-2.69-6.79.77-7.94-5.12-1.79-9.47 40.07-28.17 105.88-20.1 113.44-10.63 7.55 9.47-2.05 75.41-39.56 106.91-5.76 4.87-11.27 2.3-8.71-4.1 8.44-21.25 27.39-68.49 18.43-80.02z"/>
     </symbol>
 
+    <!-- Thumbnail gradients -->
+    <linearGradient id="thumb-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#881337"/>
+    </linearGradient>
+    <linearGradient id="thumb-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="thumb-grad-3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+
     <!-- Paths for Particles -->
     <path id="p-extract" d="M 210 200 L 310 200" fill="none"/>
     <path id="p-load" d="M 610 200 L 710 200" fill="none"/>
@@ -129,61 +143,62 @@
   </g>
 
   <!-- 1b. Extracted Data Visualization (below YouTube API) -->
-  <g transform="translate(40, 250)">
+  <g transform="translate(40, 275)">
     <!-- Panel Background -->
-    <rect width="150" height="135" rx="12" fill="url(#panel-grad)" stroke="#ef4444" stroke-width="1" opacity="0.6" filter="url(#panel-glow)"/>
-    <text x="75" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#94a3b8" text-anchor="middle" letter-spacing="1">SOURCES</text>
+    <rect width="150" height="155" rx="12" fill="url(#panel-grad)" stroke="#ef4444" stroke-width="1.5" opacity="0.7" filter="url(#panel-glow)"/>
+    <text x="75" y="22" class="node-sub" text-anchor="middle">Sources</text>
     
-    <!-- Scanning Line Effect -->
-    <line x1="5" y1="30" x2="145" y2="30" stroke="#ef4444" stroke-width="0.5" opacity="0.3">
-      <animate attributeName="y1" values="30;125;30" dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="y2" values="30;125;30" dur="4s" repeatCount="indefinite"/>
-    </line>
-
-    <!-- Source Channels -->
-    <g transform="translate(15, 42)">
-      <!-- Channel 1 -->
+    <!-- Source Channels (Activity Cards) -->
+    <g transform="translate(12, 38)">
+      <!-- Channel Card 1 -->
       <g>
-        <circle cx="0" cy="0" r="3" fill="#ef4444">
-          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
-        </circle>
-        <text x="12" y="4" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#f8fafc">Channel 1</text>
+        <rect width="24" height="16" rx="3" fill="url(#thumb-grad-1)" opacity="0.9"/>
+        <polygon points="10,5 16,8 10,11" fill="white" opacity="0.8"/>
+        <text x="32" y="13" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#f8fafc">Channel 1</text>
+        <!-- Waveform Signal -->
+        <path d="M 98 10 Q 103 2, 108 10 T 118 10 T 128 10" stroke="#ef4444" stroke-width="1.5" fill="none" opacity="0.6">
+           <animate attributeName="d" values="M 98 10 Q 103 2, 108 10 T 118 10 T 128 10; M 98 10 Q 103 18, 108 10 T 118 10 T 128 10; M 98 10 Q 103 2, 108 10 T 118 10 T 128 10" dur="0.8s" repeatCount="indefinite"/>
+        </path>
       </g>
       
-      <!-- Channel 2 -->
-      <g transform="translate(0, 28)">
-        <circle cx="0" cy="0" r="3" fill="#ef4444">
-          <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite"/>
-        </circle>
-        <text x="12" y="4" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#f8fafc">Channel 2</text>
+      <!-- Channel Card 2 -->
+      <g transform="translate(0, 30)">
+        <rect width="24" height="16" rx="3" fill="url(#thumb-grad-2)" opacity="0.9"/>
+        <polygon points="10,5 16,8 10,11" fill="white" opacity="0.8"/>
+        <text x="32" y="13" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#f8fafc">Channel 2</text>
+        <path d="M 98 10 Q 103 15, 108 10 T 118 10 T 128 10" stroke="#38bdf8" stroke-width="1.5" fill="none" opacity="0.6">
+           <animate attributeName="d" values="M 98 10 Q 103 15, 108 10 T 118 10 T 128 10; M 98 10 Q 103 5, 108 10 T 118 10 T 128 10; M 98 10 Q 103 15, 108 10 T 118 10 T 128 10" dur="1.2s" repeatCount="indefinite"/>
+        </path>
       </g>
 
-      <!-- Channel 3 -->
-      <g transform="translate(0, 56)">
-        <circle cx="0" cy="0" r="3" fill="#ef4444">
-          <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
-        </circle>
-        <text x="12" y="4" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#f8fafc">Channel 3</text>
+      <!-- Channel Card 3 -->
+      <g transform="translate(0, 60)">
+        <rect width="24" height="16" rx="3" fill="url(#thumb-grad-3)" opacity="0.9"/>
+        <polygon points="10,5 16,8 10,11" fill="white" opacity="0.8"/>
+        <text x="32" y="13" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#f8fafc">Channel 3</text>
+        <path d="M 98 10 Q 103 8, 108 10 T 118 10 T 128 10" stroke="#10b981" stroke-width="1.5" fill="none" opacity="0.6">
+           <animate attributeName="d" values="M 98 10 Q 103 8, 108 10 T 118 10 T 128 10; M 98 10 Q 103 12, 108 10 T 118 10 T 128 10; M 98 10 Q 103 8, 108 10 T 118 10 T 128 10" dur="1s" repeatCount="indefinite"/>
+        </path>
       </g>
     </g>
 
     <!-- Status Indicator -->
-    <g transform="translate(15, 112)">
-      <rect width="120" height="14" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="0.5" opacity="0.8"/>
-      <text x="60" y="10" font-family="'Segoe UI', sans-serif" font-size="8" fill="#ef4444" text-anchor="middle" font-weight="bold">
-        EXTRACTING DATA...
+    <g transform="translate(10, 130)">
+      <rect width="130" height="14" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="0.5" opacity="0.8"/>
+      <text x="65" y="10" font-family="'Segoe UI', sans-serif" font-size="8" fill="#ef4444" text-anchor="middle" font-weight="bold" letter-spacing="1">
+        DATA EXTRACTION...
         <animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/>
       </text>
     </g>
   </g>
 
   <!-- Connection to YouTube Node -->
-  <path d="M 115 250 L 115 240" stroke="#ef4444" stroke-width="2" stroke-dasharray="3 3" opacity="0.4"/>
+  <path d="M 115 275 L 115 240" stroke="#ef4444" stroke-width="2" stroke-dasharray="3 3" opacity="0.4"/>
   <circle r="2.5" fill="#ef4444" filter="url(#glow)">
-    <animateMotion dur="0.8s" repeatCount="indefinite" path="M 115 250 L 115 240"/>
+    <animateMotion dur="0.8s" repeatCount="indefinite" path="M 115 275 L 115 240"/>
   </circle>
   <circle r="2.5" fill="#ef4444" filter="url(#glow)">
-    <animateMotion dur="0.8s" begin="0.4s" repeatCount="indefinite" path="M 115 250 L 115 240"/>
+    <animateMotion dur="0.8s" begin="0.4s" repeatCount="indefinite" path="M 115 275 L 115 240"/>
   </circle>
 
   <!-- 2. Transform Node (Python, Pandas, Hugging Face) -->
