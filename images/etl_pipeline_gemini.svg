@@ -128,6 +128,64 @@
     <text x="65" y="60" class="node-sub">API</text>
   </g>
 
+  <!-- 1b. Extracted Data Visualization (below YouTube API) -->
+  <g transform="translate(40, 250)">
+    <!-- Panel Background -->
+    <rect width="150" height="135" rx="12" fill="url(#panel-grad)" stroke="#ef4444" stroke-width="1" opacity="0.6" filter="url(#panel-glow)"/>
+    <text x="75" y="20" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="bold" fill="#94a3b8" text-anchor="middle" letter-spacing="1">SOURCES</text>
+    
+    <!-- Scanning Line Effect -->
+    <line x1="5" y1="30" x2="145" y2="30" stroke="#ef4444" stroke-width="0.5" opacity="0.3">
+      <animate attributeName="y1" values="30;125;30" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="30;125;30" dur="4s" repeatCount="indefinite"/>
+    </line>
+
+    <!-- Source Channels -->
+    <g transform="translate(15, 42)">
+      <!-- Channel 1 -->
+      <g>
+        <circle cx="0" cy="0" r="3" fill="#ef4444">
+          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="12" y="4" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#f8fafc">Channel 1</text>
+      </g>
+      
+      <!-- Channel 2 -->
+      <g transform="translate(0, 28)">
+        <circle cx="0" cy="0" r="3" fill="#ef4444">
+          <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="12" y="4" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#f8fafc">Channel 2</text>
+      </g>
+
+      <!-- Channel 3 -->
+      <g transform="translate(0, 56)">
+        <circle cx="0" cy="0" r="3" fill="#ef4444">
+          <animate attributeName="opacity" values="1;0.3;1" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <text x="12" y="4" font-family="'Segoe UI', sans-serif" font-size="12" font-weight="bold" fill="#f8fafc">Channel 3</text>
+      </g>
+    </g>
+
+    <!-- Status Indicator -->
+    <g transform="translate(15, 112)">
+      <rect width="120" height="14" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="0.5" opacity="0.8"/>
+      <text x="60" y="10" font-family="'Segoe UI', sans-serif" font-size="8" fill="#ef4444" text-anchor="middle" font-weight="bold">
+        EXTRACTING DATA...
+        <animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/>
+      </text>
+    </g>
+  </g>
+
+  <!-- Connection to YouTube Node -->
+  <path d="M 115 250 L 115 240" stroke="#ef4444" stroke-width="2" stroke-dasharray="3 3" opacity="0.4"/>
+  <circle r="2.5" fill="#ef4444" filter="url(#glow)">
+    <animateMotion dur="0.8s" repeatCount="indefinite" path="M 115 250 L 115 240"/>
+  </circle>
+  <circle r="2.5" fill="#ef4444" filter="url(#glow)">
+    <animateMotion dur="0.8s" begin="0.4s" repeatCount="indefinite" path="M 115 250 L 115 240"/>
+  </circle>
+
   <!-- 2. Transform Node (Python, Pandas, Hugging Face) -->
   <g transform="translate(330, 90)">
     <text x="130" y="-15" class="node-title">Transform</text>
