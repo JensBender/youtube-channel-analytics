@@ -305,8 +305,8 @@
     <rect width="240" height="220" rx="15" fill="url(#panel-grad)" stroke="#0ea5e9" stroke-width="2" filter="url(#panel-glow)"/>
     
     <!-- Airflow Row -->
-    <g transform="translate(20, 25)">
-      <svg x="10" y="0" width="25" height="25" viewBox="0 0 128 128">
+    <g transform="translate(0, 25)">
+      <svg x="65" y="0" width="25" height="25" viewBox="0 0 128 128">
         <path d="m2.5441 127 60.809-62.332a1.124 1.124 0 0 0 0.1359-1.4368c-3.6977-5.1625-10.521-6.0578-13.05-9.5268-7.4903-10.275-9.3909-16.092-12.61-15.731a0.98374 0.98374 0 0 0-0.58464 0.3085l-21.966 22.518c-12.638 12.944-14.454 41.475-14.782 65.367a1.1908 1.1908 0 0 0 2.0473 0.83273z" fill="#017cee"/>
         <path d="m126.99 125.46-62.332-60.813a1.124 1.124 0 0 0-1.4389-0.1359c-5.1625 3.6998-6.0578 10.521-9.5268 13.05-10.275 7.4903-16.092 9.3909-15.731 12.61a0.98374 0.98374 0 0 0 0.3085 0.58248l22.518 21.966c12.944 12.638 41.475 14.454 65.367 14.782a1.1908 1.1908 0 0 0 0.83489-2.0408z" fill="#00ad46"/>
         <path d="m60.792 112.72c-7.076-6.9035-10.355-20.559 3.2058-48.719-22.046 9.8525-29.771 22.803-25.972 26.511z" fill="#04d659"/>
@@ -317,19 +317,19 @@
         <path d="m15.279 60.8c6.9035-7.076 20.559-10.355 48.721 3.2058-9.8525-22.046-22.803-29.771-26.511-25.972z" fill="#0cb6ff"/>
         <circle cx="64.009" cy="63.995" r="2.7182" fill="#4a4848"/>
       </svg>
-      <text x="50" y="10" class="node-sub">Apache</text>
-      <text x="50" y="27" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="bold" fill="#f8fafc">Airflow</text>
+      <text x="105" y="10" class="node-sub">Apache</text>
+      <text x="105" y="27" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="bold" fill="#f8fafc">Airflow</text>
     </g>
 
     <!-- Divider -->
     <line x1="30" y1="70" x2="210" y2="70" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
 
     <!-- Docker Row -->
-    <g transform="translate(20, 80)">
-      <svg x="10" y="0" width="36" height="36" viewBox="0 0 512 512">
+    <g transform="translate(0, 80)">
+      <svg x="55" y="0" width="36" height="36" viewBox="0 0 512 512">
          <path fill="#2496ed" d="M296 245h42v-38h-42zm-50 0h42v-38h-42zm-49 0h42v-38h-42zm-49 0h41v-38h-41zm-50 0h42v-38H98zm50-46h41v-38h-41zm49 0h42v-38h-42zm49 0h42v-38h-42zm0-46h42v-38h-42zm226 75s-18-17-55-11c-4-29-35-46-35-46s-29 35-8 74c-6 3-16 7-31 7H68c-5 19-5 145 133 145 99 0 173-46 208-130 52 4 63-39 63-39z"/>
       </svg>
-      <text x="65" y="28" font-family="'Segoe UI', sans-serif" font-size="22" font-weight="bold" fill="#f8fafc">Docker</text>
+      <text x="105" y="28" font-family="'Segoe UI', sans-serif" font-size="22" font-weight="bold" fill="#f8fafc">Docker</text>
     </g>
 
     <!-- AWS / EC2 Row -->
