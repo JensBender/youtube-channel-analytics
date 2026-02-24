@@ -97,6 +97,15 @@
     <path id="p-extract" d="M 210 200 L 310 200" fill="none"/>
     <path id="p-load" d="M 610 200 L 710 200" fill="none"/>
     <path id="p-viz" d="M 940 200 L 1040 200" fill="none"/>
+
+    <!-- YouTuber / User Silhouette Symbol -->
+    <symbol id="icon-user" viewBox="0 0 16 16" overflow="visible">
+      <circle cx="8" cy="6" r="3" />
+      <path d="M 2 14.5 C 2 11, 14 11, 14 14.5" />
+      <!-- Larger YouTube Badge overlapping bottom right -->
+      <rect x="8.5" y="8.5" width="11" height="8" rx="1.5" fill="#ef4444" />
+      <polygon points="12.5,10.5 16.5,12.5 12.5,14.5" fill="white" />
+    </symbol>
   </defs>
 
   <!-- Base Background & Grid -->
@@ -145,45 +154,45 @@
   <!-- 1b. Extracted Data Visualization (below YouTube API) -->
   <g transform="translate(40, 275)">
     <!-- Panel Background -->
-    <rect width="150" height="155" rx="12" fill="url(#panel-grad)" stroke="#ef4444" stroke-width="1.5" opacity="0.7" filter="url(#panel-glow)"/>
+    <rect width="150" height="175" rx="12" fill="url(#panel-grad)" stroke="#ef4444" stroke-width="1.5" opacity="0.7" filter="url(#panel-glow)"/>
     <text x="75" y="22" class="node-sub" text-anchor="middle">Sources</text>
     
     <!-- Source Channels (Activity Cards) -->
     <g transform="translate(12, 38)">
       <!-- Channel Card 1 -->
       <g>
-        <rect width="24" height="16" rx="3" fill="url(#thumb-grad-1)" opacity="0.9"/>
-        <polygon points="10,5 16,8 10,11" fill="white" opacity="0.8"/>
-        <text x="32" y="13" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">Channel 1</text>
+        <circle cx="12" cy="12" r="12" fill="url(#thumb-grad-1)" opacity="0.9"/>
+        <use href="#icon-user" x="0" y="0" width="24" height="24" fill="white" opacity="0.8"/>
+        <text x="42" y="17" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">Channel 1</text>
         <!-- Waveform Signal -->
-        <path d="M 98 10 Q 103 2, 108 10 T 118 10 T 128 10" stroke="#ef4444" stroke-width="1.5" fill="none" opacity="0.6">
-           <animate attributeName="d" values="M 98 10 Q 103 2, 108 10 T 118 10 T 128 10; M 98 10 Q 103 18, 108 10 T 118 10 T 128 10; M 98 10 Q 103 2, 108 10 T 118 10 T 128 10" dur="0.8s" repeatCount="indefinite"/>
+        <path d="M 102 14 Q 106 9, 110 14 T 117 14 T 124 14" stroke="#ef4444" stroke-width="1" fill="none" opacity="0.6">
+           <animate attributeName="d" values="M 102 14 Q 106 9, 110 14 T 117 14 T 124 14; M 102 14 Q 106 19, 110 14 T 117 14 T 124 14; M 102 14 Q 106 9, 110 14 T 117 14 T 124 14" dur="0.8s" repeatCount="indefinite"/>
         </path>
       </g>
       
       <!-- Channel Card 2 -->
-      <g transform="translate(0, 30)">
-        <rect width="24" height="16" rx="3" fill="url(#thumb-grad-2)" opacity="0.9"/>
-        <polygon points="10,5 16,8 10,11" fill="white" opacity="0.8"/>
-        <text x="32" y="13" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">Channel 2</text>
-        <path d="M 98 10 Q 103 15, 108 10 T 118 10 T 128 10" stroke="#38bdf8" stroke-width="1.5" fill="none" opacity="0.6">
-           <animate attributeName="d" values="M 98 10 Q 103 15, 108 10 T 118 10 T 128 10; M 98 10 Q 103 5, 108 10 T 118 10 T 128 10; M 98 10 Q 103 15, 108 10 T 118 10 T 128 10" dur="1.2s" repeatCount="indefinite"/>
+      <g transform="translate(0, 35)">
+        <circle cx="12" cy="12" r="12" fill="url(#thumb-grad-2)" opacity="0.9"/>
+        <use href="#icon-user" x="0" y="0" width="24" height="24" fill="white" opacity="0.8"/>
+        <text x="42" y="17" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">Channel 2</text>
+        <path d="M 102 14 Q 106 18, 110 14 T 117 14 T 124 14" stroke="#38bdf8" stroke-width="1" fill="none" opacity="0.6">
+           <animate attributeName="d" values="M 102 14 Q 106 18, 110 14 T 117 14 T 124 14; M 102 14 Q 106 10, 110 14 T 117 14 T 124 14; M 102 14 Q 106 18, 110 14 T 117 14 T 124 14" dur="1.2s" repeatCount="indefinite"/>
         </path>
       </g>
 
       <!-- Channel Card 3 -->
-      <g transform="translate(0, 60)">
-        <rect width="24" height="16" rx="3" fill="url(#thumb-grad-3)" opacity="0.9"/>
-        <polygon points="10,5 16,8 10,11" fill="white" opacity="0.8"/>
-        <text x="32" y="13" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">Channel 3</text>
-        <path d="M 98 10 Q 103 8, 108 10 T 118 10 T 128 10" stroke="#10b981" stroke-width="1.5" fill="none" opacity="0.6">
-           <animate attributeName="d" values="M 98 10 Q 103 8, 108 10 T 118 10 T 128 10; M 98 10 Q 103 12, 108 10 T 118 10 T 128 10; M 98 10 Q 103 8, 108 10 T 118 10 T 128 10" dur="1s" repeatCount="indefinite"/>
+      <g transform="translate(0, 70)">
+        <circle cx="12" cy="12" r="12" fill="url(#thumb-grad-3)" opacity="0.9"/>
+        <use href="#icon-user" x="0" y="0" width="24" height="24" fill="white" opacity="0.8"/>
+        <text x="42" y="17" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">Channel 3</text>
+        <path d="M 102 14 Q 106 12, 110 14 T 117 14 T 124 14" stroke="#10b981" stroke-width="1" fill="none" opacity="0.6">
+           <animate attributeName="d" values="M 102 14 Q 106 12, 110 14 T 117 14 T 124 14; M 102 14 Q 106 16, 110 14 T 117 14 T 124 14; M 102 14 Q 106 12, 110 14 T 117 14 T 124 14" dur="1s" repeatCount="indefinite"/>
         </path>
       </g>
     </g>
 
     <!-- Status Indicator -->
-    <g transform="translate(10, 130)">
+    <g transform="translate(10, 150)">
       <rect width="130" height="14" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="0.5" opacity="0.8"/>
       <text x="65" y="10" font-family="'Segoe UI', sans-serif" font-size="8" fill="#ef4444" text-anchor="middle" font-weight="bold" letter-spacing="1">
         DATA EXTRACTION...
